@@ -29,7 +29,8 @@ $ppassword=$db->res['value'];
 $db->queryres("select * from tbl_config where header='requestcount'");
 $requestcount=$db->res['value'];
 	
-$api = new AsmoneyAPI($pusername,$papiname, $ppassword);
+//$api = new AsmoneyAPI($pusername,$papiname, $ppassword);
+
 //Change to mili bitcoin because asmoney get currencies based on milicoin
 $db->query("select * from tbl_withdrawal where status=0");
 
@@ -48,31 +49,8 @@ while($res=$db->fetchArray()){
 		$ausername=$db2->res['ausername'];
 
 		$amount = ChangetoMili($res['amount'],$currency);
-		$r = $api->Transfer($ausername,$amount,$currency,'Withdrawal'); // Payment memo		echo $r['result'];
-		if ($r['result'] == APIerror::OK){
-			$batchno = $r['value'];
-			$db2->query("update tbl_withdrawal set status=1,reccode='$batchno' where withdrawal_id='".$res['withdrawal_id']."'");
-            echo "Withdrawal has been proceessed with bactch number " .$batchno. "<br>" ;
-		} else {
-		    if ($r['result'] == APIerror::InvalidUser )
-		    {		echo "Invalid User";		}
-		    if ($r['result'] == APIerror::InvalidAPIData )
-		    {		echo "API login is invalid";		}
-		    if ($r['result'] == APIerror::InvalidIP   ) 
-		    {		echo "IP is not match";		}
-		    if ($r['result'] == APIerror::InvalidIPSetup )
-		    {		echo "IP Setup invalid";		}
-		    if ($r['result'] == APIerror::InvalidCurrency ) 
-		    {		echo "Currency is not valid";		}
-		    if ($r['result'] == APIerror::InvalidReceiver ) 
-		    {		echo "Receiver is invalid";		}
-		    if ($r['result'] == APIerror::NotEnoughMoney )
-		    {		echo "Not Enough Money";		}
-		    if ($r['result'] == APIerror::APILimitReached )
-		    {		echo "API Limit Reach";		}
-		    if ($r['result'] == APIerror::Invalid )
-		    {		echo "An Error Occured";		}	
-		}
+		//$r = $api->Transfer($ausername,$amount,$currency,'Withdrawal'); // Payment memo		echo $r['result'];
+		
     
 		
 	}else{
