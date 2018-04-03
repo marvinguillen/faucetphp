@@ -43,21 +43,80 @@ while($res=$db->fetchArray()){
     $currency = $faucetcurrency;
 
     print_r($res);
-	echo "</br>---- withdrawal_id ----- </br>". $res['withdrawal_id'];
+	echo "</br>---- Res ----- </br>";
+		
+	if($res['type']==0){
+		
+		$db2->queryres("select * from tbl_user where user_id='".$res['user_id']."'");
+		$ausername=$db2->res['ausername'];
+
+		$amount = ChangetoMili($res['amount'],$currency);
+		//$r = $api->Transfer($ausername,$amount,$currency,'Withdrawal'); // Payment memo		echo $r['result'];
 		
 		
-	$db2->queryres("select * from tbl_user where user_id='".$res['user_id']."'");
-	$address=$db2->res['address'];
-	$amount = ChangetoMili($res['amount'],$currency);
-
-
+	}else{
 	
-	$btcaddresses[count($btcaddresses)] = $address;
-	$btcamounts[count($btcamounts)] = $amount;
-	$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
-	print_r($btcaddresses);
-	echo "</br>---- IF currency  ----- </br>";		
+		$db2->queryres("select * from tbl_user where user_id='".$res['user_id']."'");
+		$address=$db2->res['address'];
+		$amount = ChangetoMili($res['amount'],$currency);
+
+
+		if( $currency=='mBTC' ){
+			$btcaddresses[count($btcaddresses)] = $address;
+			$btcamounts[count($btcamounts)] = $amount;
+			$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
+//			$r = $api->TransferBTC($address,$amount,'mBTC','Withdrawal');
+			print_r($btcaddresses);
+			echo "</br>---- IF currency ----- </br>";		
+		}
 		
+		
+		if( $currency=='mLTC' ){
+			$r = $api->TransferLTC($address,$amount,'mLTC','Withdrawal');
+		}
+		
+		
+		if( $currency=='mDRK' ){
+			$r = $api->TransferDRK($address,$amount,'mDRK','Withdrawal');
+		}
+		
+		
+		if( $currency=='mPPC' ){
+			$r = $api->TransferPPC($address,$amount,'mPPC','Withdrawal');
+		}
+		
+		
+		if( $currency=='mDOGE' ){
+			$r = $api->TransferDOGE($address,$amount,'mDOGE','Withdrawal');
+		}
+		
+		if( $currency!='mBTC' )
+		if ($r['result'] == APIerror::OK){
+			$batchno = $r['value'];
+			$db2->query("update tbl_withdrawal set status=1,reccode='$batchno' where withdrawal_id='".$res['withdrawal_id']."'");
+            echo "Withdrawal has been proceessed with bactch number " .$batchno. "<br>" ;
+		} 
+        else {
+		    if ($r['result'] == APIerror::InvalidUser )
+		    {		echo "Invalid coin address";		}
+		    if ($r['result'] == APIerror::InvalidAPIData )
+		    {		echo "API login is invalid";		}
+		    if ($r['result'] == APIerror::InvalidIP   ) 
+		    {		echo "IP is not match";		}
+		    if ($r['result'] == APIerror::InvalidIPSetup )
+		    {		echo "IP Setup invalid";		}
+		    if ($r['result'] == APIerror::InvalidCurrency ) 
+		    {		echo "Currency is not valid";		}
+		    if ($r['result'] == APIerror::InvalidReceiver ) 
+		    {		echo "Receiver is invalid";		}
+		    if ($r['result'] == APIerror::NotEnoughMoney )
+		    {		echo "Not Enough Money";		}
+		    if ($r['result'] == APIerror::APILimitReached )
+		    {		echo "API Limit Reach";		}
+		    if ($r['result'] == APIerror::Invalid )
+		    {		echo "An Error Occured";		}	
+        }    
+	}
 
 }
 
@@ -75,8 +134,23 @@ if (count($btcamounts) > $requestcount)
 		    if ($r['result'] == APIerror::InvalidUser )
 		    {		echo "Invalid User";		}
 		    if ($r['result'] == APIerror::InvalidAPIData )
-		    {		echo "API login is invalid";			
+		    {		echo "API login is invalid";		}
+		    if ($r['result'] == APIerror::InvalidIP   ) 
+		    {		echo "IP is not match";		}
+		    if ($r['result'] == APIerror::InvalidIPSetup )
+		    {		echo "IP Setup invalid";		}
+		    if ($r['result'] == APIerror::InvalidCurrency ) 
+		    {		echo "Currency is not valid";		}
+		    if ($r['result'] == APIerror::InvalidReceiver ) 
+		    {		echo "Receiver is invalid";		}
+		    if ($r['result'] == APIerror::NotEnoughMoney )
+		    {		echo "Not Enough Money";		}
+		    if ($r['result'] == APIerror::APILimitReached )
+		    {		echo "API Limit Reach";		}
+		    if ($r['result'] == APIerror::Invalid )
+		    {		echo "An Error Occured";		}	
 		}
 }
+
 
 ?>
