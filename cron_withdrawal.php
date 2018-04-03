@@ -41,10 +41,12 @@ $withdrawalid = array();
 while($res=$db->fetchArray()){
 
     $currency = $faucetcurrency;
+
+    print_r($res['type']);
+	echo "---- $res['type'] ----- </br>";
 		
 	if($res['type']==0){
-		print_r($res['type']);
-		echo "<h1>Line 54</h1>";
+		
 		$db2->queryres("select * from tbl_user where user_id='".$res['user_id']."'");
 		$ausername=$db2->res['ausername'];
 
