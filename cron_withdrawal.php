@@ -3,8 +3,11 @@ error_reporting(E_ALL & ~ E_NOTICE); ini_set('display_errors', true);
 
 require_once "maincore.php";
 require_once "includes/dbconnector.class.php";
-require_once "includes/AsmoneyAPI.php";
+//require_once "includes/AsmoneyAPI.php";
 
+
+echo "HOLA"
+/*
 function ChangetoMili($amount,&$currency) {
 	switch ($currency)
 	{		
@@ -173,4 +176,5 @@ if (count($btcamounts) > $requestcount)
 		    {		echo "An Error Occured";		}	
 		}
 }
+*/
 ?>
