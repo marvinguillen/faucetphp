@@ -43,7 +43,7 @@ while($res=$db->fetchArray()){
     $currency = $faucetcurrency;
 
     print_r($res);
-	echo "---- Res ----- </br>";
+	echo "</br>---- Res ----- </br>";
 		
 	if($res['type']==0){
 		
@@ -53,7 +53,6 @@ while($res=$db->fetchArray()){
 		$amount = ChangetoMili($res['amount'],$currency);
 		//$r = $api->Transfer($ausername,$amount,$currency,'Withdrawal'); // Payment memo		echo $r['result'];
 		
-    
 		
 	}else{
 	
