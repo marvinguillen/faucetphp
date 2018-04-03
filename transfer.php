@@ -8,11 +8,25 @@ use Superior\Wallet;
 $walletFaucet = new Superior\Wallet();
 //$balanceFaucet = $walletFaucet->getBalance();
 
-//Test ammount transfer
-$transfer_ammount='0.5';
+//IF ammount exists on url params
+if(isset($_GET['ammount'])){
+	$transfer_ammount = $_GET['ammount'];
+}else {
+	//Test ammount transfer
+	$transfer_ammount='0.5';
+}
 
-//pablo_adress
-$transfer_address= '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q';
+
+
+//IF address exists on url params
+if(isset($_GET['address'])){
+	$transfer_address = $_GET['address'];
+}else {
+	//pablo_adress
+	$transfer_address= '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q';
+}
+
+
 
 echo "<h1>I'm trying to send ".$transfer_ammount." Sups </br> To adress ".$transfer_address."</h1>";
 
