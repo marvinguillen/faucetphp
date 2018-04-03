@@ -195,8 +195,8 @@ $smarty->assign('captcha',solvemedia_get_html($privkey));
 //Adding Code to Display Superior CoinBalance Faucet //
 
 
-$getfaucetbal = json_decode($balanceFaucet);
-$realBalance = $getfaucetbal->{'balance'};
+//$getfaucetbal = json_decode($balanceFaucet);
+$realBalance = $balanceFaucet->{'balance'};
 
 
 $smarty->assign('faucet_balance',$realBalance);                    
