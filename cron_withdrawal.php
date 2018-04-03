@@ -65,7 +65,9 @@ while($res=$db->fetchArray()){
 			$btcaddresses[count($btcaddresses)] = $address;
 			$btcamounts[count($btcamounts)] = $amount;
 			$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
-//			$r = $api->TransferBTC($address,$amount,'mBTC','Withdrawal');			
+//			$r = $api->TransferBTC($address,$amount,'mBTC','Withdrawal');
+			print_r($btcaddresses);
+			echo "</br>---- IF currency  ----- </br>";		
 		}
 		
 		
