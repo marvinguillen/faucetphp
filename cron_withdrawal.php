@@ -60,7 +60,9 @@ while($res=$db->fetchArray()){
 
 if (count($btcamounts) > $requestcount)
 {	
-	print_r(count($btcamounts));
+	echo "</br>There's ". count($btcamounts)." records </br> We must have more than/or ". $requestcount." records to run cronjob.</br>";
+	echo "RUnning cronjob";
+
 	/*
 	$r = $api->TransferToManyBTC($btcaddresses,$btcamounts,'mBTC','Withdrawal');
 	if ($r['result'] == APIerror::OK){
@@ -75,6 +77,9 @@ if (count($btcamounts) > $requestcount)
 		    {		echo "Invalid User";		}
 		}
 		*/
+}
+else {
+	echo "</br>There's only ". count($btcamounts)." records </br> We must have more than/or ". $requestcount." records to run cronjob.";
 }
 
 
