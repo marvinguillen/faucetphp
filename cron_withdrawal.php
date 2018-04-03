@@ -75,21 +75,6 @@ while($res=$db->fetchArray()){
 			$r = $api->TransferLTC($address,$amount,'mLTC','Withdrawal');
 		}
 		
-		
-		if( $currency=='mDRK' ){
-			$r = $api->TransferDRK($address,$amount,'mDRK','Withdrawal');
-		}
-		
-		
-		if( $currency=='mPPC' ){
-			$r = $api->TransferPPC($address,$amount,'mPPC','Withdrawal');
-		}
-		
-		
-		if( $currency=='mDOGE' ){
-			$r = $api->TransferDOGE($address,$amount,'mDOGE','Withdrawal');
-		}
-		
 		if( $currency!='mBTC' )
 		if ($r['result'] == APIerror::OK){
 			$batchno = $r['value'];
