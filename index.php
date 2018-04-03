@@ -196,7 +196,7 @@ $smarty->assign('captcha',solvemedia_get_html($privkey));
 
 
 //$getfaucetbal = json_decode($balanceFaucet);
-$realBalance = $balanceFaucet->{'balance'};
+$realBalance = $balanceFaucet->{'unlocked_balance'};
 
 
 $smarty->assign('faucet_balance',$realBalance);                    
