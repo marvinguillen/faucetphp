@@ -65,8 +65,8 @@ print_r($btcamounts);
 
 if (count($btcamounts) > $requestcount)
 {	
-	echo "</br>There's ". count($btcamounts)." records </br> We must have more than/or ". $requestcount." records to run cronjob.</br>";
-	echo "RUnning cronjob";
+	echo "</br><h1>There's ". count($btcamounts)." records </br> We must have more than/or ". $requestcount." records to run Superior Transfer cronjob.</br>";
+	echo "RUnning cronjob </h1>";
 
 	/*
 	$r = $api->TransferToManyBTC($btcaddresses,$btcamounts,'mBTC','Withdrawal');
@@ -84,7 +84,7 @@ if (count($btcamounts) > $requestcount)
 		*/
 }
 else {
-	echo "</br>There's only ". count($btcamounts)." records </br> We must have more than/or ". $requestcount." records to run cronjob.";
+	echo "</br><h1>There's only ". count($btcamounts)." records </br> We must have more than/or ". $requestcount." records to run Superior Transfer Cronjob.</h1>";
 }
 
 
