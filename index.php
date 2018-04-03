@@ -9,7 +9,7 @@ require_once "maincore.php";
 require "../vendor/autoload.php";
 use Superior\Wallet;
 $walletFaucet = new Superior\Wallet();
-$balanceFaucet = $walletFaucet->getRealBalance();
+$balanceFaucet = $walletFaucet->getBalance();
 
 
 
@@ -195,8 +195,8 @@ $smarty->assign('captcha',solvemedia_get_html($privkey));
 //Adding Code to Display Superior CoinBalance Faucet //
 
 
-//$getfaucetbal = json_decode($balanceFaucet);
-$realBalance = $balanceFaucet->{'unlocked_balance'};
+$getfaucetbal = json_decode($balanceFaucet);
+$realBalance = $getfaucetbal->{'unlocked_balance'};
 
 
 $smarty->assign('faucet_balance',$realBalance);                    
