@@ -44,32 +44,18 @@ while($res=$db->fetchArray()){
 
     print_r($res);
 	echo "</br>---- Res ----- </br>";
-		
-	if($res['type']==0){
-		
-		$db2->queryres("select * from tbl_user where user_id='".$res['user_id']."'");
-		$ausername=$db2->res['ausername'];
+			
+	$db2->queryres("select * from tbl_user where user_id='".$res['user_id']."'");
+	$address=$db2->res['address'];
+	$amount = ChangetoMili($res['amount'],$currency);
 
-		$amount = ChangetoMili($res['amount'],$currency);
-		
-		
-	}else{
 	
-		$db2->queryres("select * from tbl_user where user_id='".$res['user_id']."'");
-		$address=$db2->res['address'];
-		$amount = ChangetoMili($res['amount'],$currency);
-
-
+	$btcaddresses[count($btcaddresses)] = $address;
+	$btcamounts[count($btcamounts)] = $amount;
+	$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
+	print_r($btcaddresses);
+	echo "</br>---- IF currency ----- </br>";		
 		
-		$btcaddresses[count($btcaddresses)] = $address;
-		$btcamounts[count($btcamounts)] = $amount;
-		$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
-		print_r($btcaddresses);
-		echo "</br>---- IF currency ----- </br>";		
-		
-		
-		   
-	}
 
 }
 
