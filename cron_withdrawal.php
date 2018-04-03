@@ -7,7 +7,7 @@ require_once "includes/dbconnector.class.php";
 
 
 echo "HOLA"
-/*
+
 function ChangetoMili($amount,&$currency) {
 	switch ($currency)
 	{		
@@ -24,6 +24,8 @@ function ChangetoMili($amount,&$currency) {
 	    case "mDRK" :return $amount;		
 	}
 }
+
+echo "good 1";
 
 $db=new DbConnector;
 $db->queryres("select * from tbl_config where header='currency'");
@@ -176,5 +178,6 @@ if (count($btcamounts) > $requestcount)
 		    {		echo "An Error Occured";		}	
 		}
 }
-*/
+
+
 ?>
