@@ -3,29 +3,19 @@ error_reporting(E_ALL & ~ E_NOTICE); ini_set('display_errors', true);
 
 require_once "maincore.php";
 require_once "includes/dbconnector.class.php";
-require_once "includes/AsmoneyAPI.php";
 
 
-echo "HOLA";
-
+echo "----- ChangetoMili ------ </br>";
 function ChangetoMili($amount,&$currency) {
 	switch ($currency)
 	{		
 	    case "BTC" : $amount = $amount * 1000;$currency="mBTC";return $amount;
 	    case "mBTC" :return $amount;
 	    case "Satoshi" : $amount = $amount / 100000;$currency="mBTC";return $amount;
-	    case "LTC" :$amount = $amount * 1000;$currency="mLTC";return $amount;
-	    case "mLTC" :return $amount;
-	    case "DOGE" :$amount = $amount * 1000;$currency="mDOGE";return $amount;
-	    case "mDOGE" :	return $amount;
-	    case "PPC" :$amount = $amount * 1000;$currency="mPPC";return $amount;
-	    case "mPPC" :return $amount;
-	    case "DRK" :$amount = $amount * 1000;$currency="mDRK";return $amount;
-	    case "mDRK" :return $amount;		
 	}
 }
 
-echo "good 1";
+echo "------- DbConnector ------ </br>";
 
 $db=new DbConnector;
 $db->queryres("select * from tbl_config where header='currency'");
