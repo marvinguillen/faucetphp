@@ -41,7 +41,7 @@ while($res=$db->fetchArray()){
 
     $currency = $faucetcurrency;
 
-    print_r($res);
+    //print_r($res);
 	echo "</br>---- Res ----- </br>";
 			
 	$db2->queryres("select * from tbl_user where user_id='".$res['user_id']."'");
@@ -52,11 +52,14 @@ while($res=$db->fetchArray()){
 	$btcaddresses[count($btcaddresses)] = $address;
 	$btcamounts[count($btcamounts)] = $amount;
 	$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
-	print_r($btcaddresses);
+	//print_r($btcaddresses);
 	echo "</br>---- IF currency ----- </br>";		
 		
 
 }
+print_r($btcaddresses);
+print_r($btcamounts);
+
 
 if (count($btcamounts) > $requestcount)
 {	
