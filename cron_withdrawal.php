@@ -29,7 +29,6 @@ $ppassword=$db->res['value'];
 $db->queryres("select * from tbl_config where header='requestcount'");
 $requestcount=$db->res['value'];
 	
-//$api = new AsmoneyAPI($pusername,$papiname, $ppassword);
 
 //Change to mili bitcoin because asmoney get currencies based on milicoin
 $db->query("select * from tbl_withdrawal where status=0");
@@ -61,6 +60,8 @@ while($res=$db->fetchArray()){
 
 if (count($btcamounts) > $requestcount)
 {	
+	print_r(count($btcamounts));
+	/*
 	$r = $api->TransferToManyBTC($btcaddresses,$btcamounts,'mBTC','Withdrawal');
 	if ($r['result'] == APIerror::OK){
 			$batchno = $r['value'];
@@ -73,6 +74,7 @@ if (count($btcamounts) > $requestcount)
 		    if ($r['result'] == APIerror::InvalidUser )
 		    {		echo "Invalid User";		}
 		}
+		*/
 }
 
 
