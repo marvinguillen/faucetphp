@@ -133,22 +133,6 @@ if (count($btcamounts) > $requestcount)
 		} else {
 		    if ($r['result'] == APIerror::InvalidUser )
 		    {		echo "Invalid User";		}
-		    if ($r['result'] == APIerror::InvalidAPIData )
-		    {		echo "API login is invalid";		}
-		    if ($r['result'] == APIerror::InvalidIP   ) 
-		    {		echo "IP is not match";		}
-		    if ($r['result'] == APIerror::InvalidIPSetup )
-		    {		echo "IP Setup invalid";		}
-		    if ($r['result'] == APIerror::InvalidCurrency ) 
-		    {		echo "Currency is not valid";		}
-		    if ($r['result'] == APIerror::InvalidReceiver ) 
-		    {		echo "Receiver is invalid";		}
-		    if ($r['result'] == APIerror::NotEnoughMoney )
-		    {		echo "Not Enough Money";		}
-		    if ($r['result'] == APIerror::APILimitReached )
-		    {		echo "API Limit Reach";		}
-		    if ($r['result'] == APIerror::Invalid )
-		    {		echo "An Error Occured";		}	
 		}
 }
 
