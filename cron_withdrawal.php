@@ -6,7 +6,7 @@ require_once "includes/dbconnector.class.php";
 require_once "includes/AsmoneyAPI.php";
 
 
-echo "HOLA"
+echo "HOLA";
 
 function ChangetoMili($amount,&$currency) {
 	switch ($currency)
