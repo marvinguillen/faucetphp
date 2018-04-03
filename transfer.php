@@ -9,7 +9,7 @@ $walletFaucet = new Superior\Wallet();
 //$balanceFaucet = $walletFaucet->getBalance();
 
 //Test ammount transfer
-$transfer_ammount='1';
+$transfer_ammount='0.5';
 
 //pablo_adress
 $transfer_address= '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q';
