@@ -42,8 +42,8 @@ while($res=$db->fetchArray()){
 
     $currency = $faucetcurrency;
 
-    print_r($res['type']);
-	echo "---- $res['type'] ----- </br>";
+    print_r($res);
+	echo "---- $res ----- </br>";
 		
 	if($res['type']==0){
 		
