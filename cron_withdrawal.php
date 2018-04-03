@@ -51,7 +51,6 @@ while($res=$db->fetchArray()){
 		$ausername=$db2->res['ausername'];
 
 		$amount = ChangetoMili($res['amount'],$currency);
-		//$r = $api->Transfer($ausername,$amount,$currency,'Withdrawal'); // Payment memo		echo $r['result'];
 		
 		
 	}else{
@@ -70,21 +69,7 @@ while($res=$db->fetchArray()){
 			echo "</br>---- IF currency ----- </br>";		
 		}
 		
-		
-		if( $currency=='mLTC' ){
-			$r = $api->TransferLTC($address,$amount,'mLTC','Withdrawal');
-		}
-		
-		if( $currency!='mBTC' )
-		if ($r['result'] == APIerror::OK){
-			$batchno = $r['value'];
-			$db2->query("update tbl_withdrawal set status=1,reccode='$batchno' where withdrawal_id='".$res['withdrawal_id']."'");
-            echo "Withdrawal has been proceessed with bactch number " .$batchno. "<br>" ;
-		} 
-        else {
-		    if ($r['result'] == APIerror::InvalidUser )
-		    {		echo "Invalid coin address";		}	
-        }    
+		   
 	}
 
 }
