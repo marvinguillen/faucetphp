@@ -60,14 +60,13 @@ while($res=$db->fetchArray()){
 		$amount = ChangetoMili($res['amount'],$currency);
 
 
-		if( $currency=='mBTC' ){
-			$btcaddresses[count($btcaddresses)] = $address;
-			$btcamounts[count($btcamounts)] = $amount;
-			$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
-//			$r = $api->TransferBTC($address,$amount,'mBTC','Withdrawal');
-			print_r($btcaddresses);
-			echo "</br>---- IF currency ----- </br>";		
-		}
+		
+		$btcaddresses[count($btcaddresses)] = $address;
+		$btcamounts[count($btcamounts)] = $amount;
+		$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
+		print_r($btcaddresses);
+		echo "</br>---- IF currency ----- </br>";		
+		
 		
 		   
 	}
