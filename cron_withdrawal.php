@@ -67,16 +67,6 @@ if (count($btcamounts) > $requestcount)
 {	
 	echo "</br><h1>There's ". count($btcamounts)." records </br> We must have more than/or ". $requestcount." records to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h1>";
-
-    
-	for ($i=0;$i<count($withdrawalid);$i++) {
-		$wid = $withdrawalid[$i];
-		//echo "update tbl_withdrawal set status=1,reccode= -batchno where withdrawal_id= ".$wid.".</br>");
-	}
-	
-
-    //echo count($withdrawalid). " Withdrawals has been proceessed with bactch number  -$batchno. <br>" ;
-
 	
 	/*
 	$r = $api->TransferToManyBTC($btcaddresses,$btcamounts,'mBTC','Withdrawal');
@@ -96,6 +86,18 @@ if (count($btcamounts) > $requestcount)
 }
 else {
 	echo "</br><h1>There's only ". count($btcamounts)." records </br> We must have more than/or ". $requestcount." records to run Superior Transfer Cronjob.</h1>";
+
+
+	for ($i=0;$i<count($withdrawalid);$i++) {
+		$wid = $withdrawalid[$i];
+		print_r($wid);
+		//echo "update tbl_withdrawal set status=1,reccode= -batchno where withdrawal_id= ".$wid.".</br>");
+	}
+	
+
+    //echo count($withdrawalid). " Withdrawals has been proceessed with bactch number  -$batchno. <br>" ;
+
+
 }
 
 
