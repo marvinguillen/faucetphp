@@ -96,7 +96,7 @@ else {
 	}
 	
 
-    //echo count($withdrawalid). " Withdrawals has been proceessed with bactch number  -$batchno. <br>" ;
+    echo count($withdrawalid). " Withdrawals has been proceessed with hash number  -$batchno. <br>" ;
 
 
 }
