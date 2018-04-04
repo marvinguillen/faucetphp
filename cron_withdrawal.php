@@ -52,23 +52,23 @@ while($res=$db->fetchArray()){
 	//print_r($btcaddresses);
 		
 }
-echo "</br><h3>Array with adresses</br></h3>";
+echo "</br><h5>Array with adresses</br></h5>";
 print_r($btcaddresses);
-echo "</br></br><h3>Array with ammounts</br></h3>";
+echo "</br></br><h5>Array with ammounts</br></h5>";
 print_r($btcamounts);
 
 
 if (count($btcamounts) > $requestcount)
 {	
-	echo "</br><h1>There are ". count($btcamounts)." withdrawals in our database. </br> 
+	echo "</br><h3>There are ". count($btcamounts)." withdrawals in our database. </br> 
 	We must have more than/or ". $requestcount." records to run Superior Transfer cronjob.</br>";
-	echo "RUnning cronjob </h1>";
+	echo "RUnning cronjob </h3>";
 	
 	
 		
 }
 else {
-	echo "</br><h1>There are only ". count($btcamounts)." withdrawals in our database </br> We must have more than/or ". $requestcount." withdrawals to run Superior Transfer Cronjob.</h1>";
+	echo "</br><h3>There are only ". count($btcamounts)." withdrawals in our database </br> We must have more than/or ". $requestcount." withdrawals to run Superior Transfer Cronjob.</h3>";
 
 
 	for ($i=0;$i<count($withdrawalid);$i++) {
