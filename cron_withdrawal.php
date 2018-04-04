@@ -61,14 +61,14 @@ print_r($btcamounts);
 if (count($btcamounts) > $requestcount)
 {	
 	echo "</br><h3>There are ". count($btcamounts)." withdrawals in our database. </br> 
-	We must have more than/or ". $requestcount." records to run Superior Transfer cronjob.</br>";
+	We must have more than ". $requestcount." records to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
 	
 	
 		
 }
 else {
-	echo "</br><h3>There are only ". count($btcamounts)." withdrawals in our database </br> We must have more than/or ". $requestcount." withdrawals to run Superior Transfer Cronjob.</h3>";
+	echo "</br><h3>There are only ". count($btcamounts)." withdrawals in our database </br> We must have more than ". $requestcount." withdrawals to run Superior Transfer Cronjob.</h3>";
 
 
 	for ($i=0;$i<count($withdrawalid);$i++) {
