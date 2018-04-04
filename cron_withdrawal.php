@@ -98,6 +98,9 @@ else {
 
     echo count($withdrawalid). " Withdrawals has been proceessed with hash number  -$batchno. <br>" ;
 
+    $db2->query("update tbl_withdrawal set status=1,reccode=010101 where withdrawal_id= 3");
+				
+
 
 }
 
