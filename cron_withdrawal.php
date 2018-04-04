@@ -5,7 +5,6 @@ require_once "maincore.php";
 require_once "includes/dbconnector.class.php";
 
 
-echo "----- ChangetoMili ------ </br>";
 function ChangetoMili($amount,&$currency) {
 	switch ($currency)
 	{		
@@ -15,7 +14,6 @@ function ChangetoMili($amount,&$currency) {
 	}
 }
 
-echo "------- DbConnector ------ </br>";
 
 $db=new DbConnector;
 $db->queryres("select * from tbl_config where header='currency'");
@@ -42,7 +40,6 @@ while($res=$db->fetchArray()){
     $currency = $faucetcurrency;
 
     //print_r($res);
-	//echo "</br>---- Res ----- </br>";
 			
 	$db2->queryres("select * from tbl_user where user_id='".$res['user_id']."'");
 	$address=$db2->res['address'];
@@ -53,39 +50,25 @@ while($res=$db->fetchArray()){
 	$btcamounts[count($btcamounts)] = $amount;
 	$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
 	//print_r($btcaddresses);
-	//echo "</br>---- IF currency ----- </br>";		
 		
-
 }
-echo "</br>Array with adresses</br>";
+echo "</br><h3>Array with adresses</br></h3>";
 print_r($btcaddresses);
-echo "</br>Array with ammounts</br>";
+echo "</br></br><h3>Array with ammounts</br></h3>";
 print_r($btcamounts);
 
 
 if (count($btcamounts) > $requestcount)
 {	
-	echo "</br><h1>There's ". count($btcamounts)." records </br> We must have more than/or ". $requestcount." records to run Superior Transfer cronjob.</br>";
+	echo "</br><h1>There are ". count($btcamounts)." withdrawals in our database. </br> 
+	We must have more than/or ". $requestcount." records to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h1>";
 	
-	/*
-	$r = $api->TransferToManyBTC($btcaddresses,$btcamounts,'mBTC','Withdrawal');
-	if ($r['result'] == APIerror::OK){
-			$batchno = $r['value'];
-			for ($i=0;$i<count($withdrawalid);$i++) {
-			$wid = $withdrawalid[$i];
-			$db2->query("update tbl_withdrawal set status=1,reccode='$batchno' where withdrawal_id='".$wid."'");
-			}	
-            echo count($withdrawalid). " Withdrawals has been proceessed with bactch number " .$batchno. "<br>" ;
-		} else {
-		    if ($r['result'] == APIerror::InvalidUser )
-		    {		echo "Invalid User";		}
-		}
-	*/
+	
 		
 }
 else {
-	echo "</br><h1>There's only ". count($btcamounts)." records </br> We must have more than/or ". $requestcount." records to run Superior Transfer Cronjob.</h1>";
+	echo "</br><h1>There are only ". count($btcamounts)." withdrawals in our database </br> We must have more than/or ". $requestcount." withdrawals to run Superior Transfer Cronjob.</h1>";
 
 
 	for ($i=0;$i<count($withdrawalid);$i++) {
@@ -96,7 +79,7 @@ else {
 	}
 	
 
-    echo count($withdrawalid). " Withdrawals has been proceessed with hash number  -$batchno. <br>" ;
+    echo count($withdrawalid). " Withdrawals has been proceessed with hash number  <-1ba>	</-1ba>tchno. <br>" ;
 
     $db2->query("update tbl_withdrawal set status=1,reccode='34394934394jkwkejkwekjwkekwkejwkekwjke' where withdrawal_id= 3");
 				
