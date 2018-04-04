@@ -72,7 +72,7 @@ if (count($btcamounts) > $requestcount)
 		$wid = $withdrawalid[$i];
 		echo "update tbl_withdrawal set status=1,reccode= -batchno where withdrawal_id= ".$wid.".</br>");
 	}	
-    echo count($withdrawalid). " Withdrawals has been proceessed with bactch number  -$batchno. <br>" ;
+    //echo count($withdrawalid). " Withdrawals has been proceessed with bactch number  -$batchno. <br>" ;
 
 	
 	/*
