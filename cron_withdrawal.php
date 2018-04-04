@@ -91,7 +91,8 @@ else {
 	for ($i=0;$i<count($withdrawalid);$i++) {
 		$wid = $withdrawalid[$i];
 		print_r($wid);
-		//echo "update tbl_withdrawal set status=1,reccode= -batchno where withdrawal_id= ".$wid.".</br>");
+		echo"<br>";
+		echo "update tbl_withdrawal set status=1,reccode= -batchno where withdrawal_id= ".$wid.".</br>";
 	}
 	
 
