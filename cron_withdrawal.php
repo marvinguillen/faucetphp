@@ -44,7 +44,6 @@ while($res=$db->fetchArray()){
 	$address=$db2->res['address'];
 	$amount = ChangetoMili($res['amount'],$currency);
 
-	
 	$btcaddresses[count($btcaddresses)] = $address;
 	$btcamounts[count($btcamounts)] = $amount;
 	$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
@@ -78,7 +77,7 @@ if (count($btcamounts) > $requestcount)
 		//}
 	}
 
-    echo count($withdrawalid). " Withdrawals has been proceessed with hash number  <-1ba>	</-1ba>tchno. <br>" ;	
+    echo $requestcount. " Withdrawals has been proceessed with hash number  <-1ba>	</-1ba>tchno. <br>" ;	
 		
 }
 else {
