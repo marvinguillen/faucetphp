@@ -64,14 +64,16 @@ print_r($btcamounts);
 
 if (count($btcamounts) > $requestcount)
 {	
-	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
-	$btcamounts = array_slice($btcamounts, 0, $requestcount);
-
+	
 
 	
 	echo "</br><h3>There are ". count($btcamounts)." no processed withdrawals in our database . </br> 
 	We will processing in group/lot of ". $requestcount." to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
+
+	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
+	$btcamounts = array_slice($btcamounts, 0, $requestcount);
+
 
 	$options = [
 	    'destinations' => (object) [
@@ -116,7 +118,7 @@ if (count($btcamounts) > $requestcount)
 	} else {
 		$transfer_errorcode = $transfer_result->{'code'};
 		$transfer_errormessage = $transfer_result->{'message'};
-		echo "The Transfer has not been processed</br> <h1>Error Transfer!</h1> </br> ";
+		echo "<h1>The Transfer has not been processed</br> Error Transfer!</h1> </br> ";
 		echo 
 		"Error Code: ".$transfer_errorcode. 
 		"</br>Error Message: ".$transfer_errormessage;
