@@ -5,6 +5,7 @@ require_once "maincore.php";
 require_once "includes/dbconnector.class.php";
 
 
+
 function ChangetoMili($amount,&$currency) {
 	switch ($currency)
 	{		
@@ -58,6 +59,8 @@ print_r($btcamounts);
 
 if (count($btcamounts) > $requestcount)
 {	
+	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
+	print_r($btcaddresses);
 	
 	echo "</br><h3>There are ". count($btcamounts)." no processed withdrawals in our database . </br> 
 	We will processing in group/lot of ". $requestcount." to run Superior Transfer cronjob.</br>";
