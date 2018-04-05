@@ -66,15 +66,18 @@ if (count($btcamounts) > $requestcount)
 	We must have more than ". $requestcount." records to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
 
-	$hash="00-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
+	$hash="xxx-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
 
 	for ($i=0;$i<count($withdrawalid);$i++) {
+		while ( i<= 10) {
+					
 		echo "</br><h2>i = ".$i."<h2></br>";
 		$wid = $withdrawalid[$i];
 		print_r($wid);
 		echo"<br>";
 		echo "update tbl_withdrawal set status=1,reccode= -batchno where withdrawal_id= ".$wid.".</br>";
 		$db2->query("update tbl_withdrawal set status=0,reccode='".$hash."' where withdrawal_id=".$wid."");
+		} /* endwhile i */
 	}
 	
 
