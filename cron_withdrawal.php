@@ -39,8 +39,7 @@ while($res=$db->fetchArray()){
 
     $currency = $faucetcurrency;
 
-    //print_r($res);
-			
+    //print_r($res);		
 	$db2->queryres("select * from tbl_user where user_id='".$res['user_id']."'");
 	$address=$db2->res['address'];
 	$amount = ChangetoMili($res['amount'],$currency);
@@ -63,13 +62,6 @@ if (count($btcamounts) > $requestcount)
 	echo "</br><h3>There are ". count($btcamounts)." withdrawals in our database. </br> 
 	We must have more than ". $requestcount." records to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
-	
-	
-		
-}
-else {
-	echo "</br><h3>There are only ". count($btcamounts)." withdrawals in our database </br> We must have more than ". $requestcount." withdrawals to run Superior Transfer Cronjob.</h3>";
-
 
 	for ($i=0;$i<count($withdrawalid);$i++) {
 		$wid = $withdrawalid[$i];
@@ -82,10 +74,12 @@ else {
     echo count($withdrawalid). " Withdrawals has been proceessed with hash number  <-1ba>	</-1ba>tchno. <br>" ;
 
     $db2->query("update tbl_withdrawal set status=0,reccode='34394934394jkwkejkwekjwkekwkejwkekwjke' where withdrawal_id= 6");
-				
-
-
+	
+		
 }
-
+else {
+	echo "</br><h3>There are only ". count($btcamounts)." withdrawals in our database </br> We must have more than ". $requestcount." withdrawals to run Superior Transfer Cronjob.</h3>";
+				
+}
 
 ?>
