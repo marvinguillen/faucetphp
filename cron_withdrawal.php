@@ -86,6 +86,9 @@ if (count($btcamounts) > $requestcount)
 	$sup_transfer = $walletFaucet->transfer($options);
 	print_r($sup_transfer);
 	$transfer_result = json_decode($sup_transfer);
+	$now = new DateTime();
+	echo $now->format('Y-m-d H:i:s');    // MySQL datetime format
+	echo $now->getTimestamp();  
 
 
 
