@@ -68,10 +68,9 @@ if (count($btcamounts) > $requestcount)
 	for ($i=0;$i<$requestcount;$i++) {
 		//while ( $i<= ($requestcount-1)) {
 			
-		echo "</br><h2>i = ".$i."<h2></br>";
+		echo "Counter = ".$i." -- ";
 		$wid = $withdrawalid[$i];
 		print_r($wid);
-		echo"<br>";
 		echo "update tbl_withdrawal set status=1,reccode= -batchno where withdrawal_id= ".$wid.".</br>";
 		$db2->query("update tbl_withdrawal set status=0,reccode='".$hash."' where withdrawal_id=".$wid."");
 		//}
