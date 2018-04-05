@@ -60,26 +60,62 @@ print_r($btcamounts);
 if (count($btcamounts) > $requestcount)
 {	
 	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
-	print_r($btcaddresses);
+	$btcamounts = array_slice($btcamounts, 0, $requestcount);
+
 	
 	echo "</br><h3>There are ". count($btcamounts)." no processed withdrawals in our database . </br> 
 	We will processing in group/lot of ". $requestcount." to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
 
-	$hash_transfer="333-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
+	//Adding Lib for SuperiorCoin Functions
+	require "../vendor/autoload.php";
+	use Superior\Wallet;
+	$walletFaucet = new Superior\Wallet();
 
-	for ($i=0;$i<$requestcount;$i++) {
-		//while ( $i<= ($requestcount-1)) {
-			
-		echo "Counter = ".$i." -- ";
-		$wid = $withdrawalid[$i];
-		print_r($wid);
-		echo "- update tbl_withdrawal set status=1,reccode=".$hash_transfer." where withdrawal_id= ".$wid.".</br>";
-		$db2->query("update tbl_withdrawal set status=0,reccode='".$hash_transfer."' where withdrawal_id=".$wid."");
-		//}
+	$options = [
+	    'destinations' => (object) [
+	        'amount' => $btcamounts,
+	        'address' => $btcaddresses
+	    ]
+	];
+	
+	$sup_transfer = $walletFaucet->transfer($options);
+	$transfer_result = json_decode($sup_transfer);
+
+	//if "fee" exists in transfer response means that transfe was successfull
+	if (isset($transfer_result->{'fee'})) {
+		echo "</br> <h1>Success Transfer!</h1> </br>";
+		$transfer_fee = $transfer_result->{'fee'};
+		$transfer_hash = $transfer_result->{'tx_hash'};
+		echo 
+		"Transfer Fee: ".$transfer_fee. 
+		"</br>Transfer Hash: ".$transfer_hash;
+
+
+		$hash_transfer=$transfer_hash;
+
+		for ($i=0;$i<$requestcount;$i++) {
+			//while ( $i<= ($requestcount-1)) {
+				
+			echo "Counter = ".$i." -- ";
+			$wid = $withdrawalid[$i];
+			print_r($wid);
+			echo "- update tbl_withdrawal set status=1,reccode=".$hash_transfer." where withdrawal_id= ".$wid.".</br>";
+			$db2->query("update tbl_withdrawal set status=1,reccode='".$hash_transfer."' where withdrawal_id=".$wid."");
+			//}
+		}
+
+	    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number:".$hash_transfer."</h3>" ;	
+	//if "fee" not exists in transfer response means that error exists
+	} else {
+		$transfer_errorcode = $transfer_result->{'code'};
+		$transfer_errormessage = $transfer_result->{'message'};
+		echo "</br> <h1>Error Transfer!</h1> </br> ";
+		echo 
+		"Error Code: ".$transfer_errorcode. 
+		"</br>Error Message: ".$transfer_errormessage;
 	}
 
-    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number:".$hash_transfer."</h3>" ;	
 		
 }
 else {
