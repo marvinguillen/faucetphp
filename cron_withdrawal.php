@@ -4,6 +4,12 @@ error_reporting(E_ALL & ~ E_NOTICE); ini_set('display_errors', true);
 require_once "maincore.php";
 require_once "includes/dbconnector.class.php";
 
+//Adding Lib for SuperiorCoin Functions
+require "../vendor/autoload.php";
+use Superior\Wallet;
+$walletFaucet = new Superior\Wallet();
+
+
 
 
 function ChangetoMili($amount,&$currency) {
@@ -67,10 +73,6 @@ if (count($btcamounts) > $requestcount)
 	We will processing in group/lot of ". $requestcount." to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
 
-	//Adding Lib for SuperiorCoin Functions
-	require "../vendor/autoload.php";
-	use Superior\Wallet;
-	$walletFaucet = new Superior\Wallet();
 
 
 	$hash_transfer="333-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
