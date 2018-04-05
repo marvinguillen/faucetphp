@@ -69,7 +69,7 @@ if (count($btcamounts) > $requestcount)
 	$hash="xxx-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
 
 	for ($i=0;$i<count($withdrawalid);$i++) {
-		while ( $i<= ($requestcount-1)) {
+		//while ( $i<= ($requestcount-1)) {
 			
 		echo "</br><h2>i = ".$i."<h2></br>";
 		$wid = $withdrawalid[$i];
@@ -77,7 +77,7 @@ if (count($btcamounts) > $requestcount)
 		echo"<br>";
 		echo "update tbl_withdrawal set status=1,reccode= -batchno where withdrawal_id= ".$wid.".</br>";
 		$db2->query("update tbl_withdrawal set status=0,reccode='".$hash."' where withdrawal_id=".$wid."");
-		}
+		//}
 	}
 	
 
