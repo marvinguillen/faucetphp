@@ -60,7 +60,7 @@ if (count($btcamounts) > $requestcount)
 {	
 	
 	echo "</br><h3>There are ". count($btcamounts)." no processed withdrawals in our database . </br> 
-	We must have more than ". $requestcount." records to run Superior Transfer cronjob.</br>";
+	We will processing in group/lot of ". $requestcount." to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
 
 	$hash="333-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
@@ -76,7 +76,7 @@ if (count($btcamounts) > $requestcount)
 		//}
 	}
 
-    echo $requestcount. " Withdrawals has been proceessed with hash number  <-1ba>	</-1ba>tchno. <br>" ;	
+    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number  <-1ba>	</-1ba>tchno. </h3>" ;	
 		
 }
 else {
