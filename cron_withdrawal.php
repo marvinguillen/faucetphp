@@ -59,7 +59,7 @@ print_r($btcamounts);
 if (count($btcamounts) > $requestcount)
 {	
 	
-	echo "</br><h3>There are ". count($btcamounts)." withdrawals in our database. </br> 
+	echo "</br><h3>There are ". count($btcamounts)." no processed withdrawals in our database . </br> 
 	We must have more than ". $requestcount." records to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
 
