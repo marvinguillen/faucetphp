@@ -64,7 +64,7 @@ if (count($btcamounts) > $requestcount)
 	We must have more than ". $requestcount." records to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
 
-	$hash="xxx-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
+	$hash="333-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
 
 	for ($i=0;$i<$requestcount;$i++) {
 		//while ( $i<= ($requestcount-1)) {
