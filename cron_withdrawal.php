@@ -66,7 +66,7 @@ if (count($btcamounts) > $requestcount)
 
 	$hash="xxx-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
 
-	for ($i=0;$i<count($withdrawalid);$i++) {
+	for ($i=0;$i<$requestcount;$i++) {
 		//while ( $i<= ($requestcount-1)) {
 			
 		echo "</br><h2>i = ".$i."<h2></br>";
