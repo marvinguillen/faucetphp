@@ -67,6 +67,12 @@ if (count($btcamounts) > $requestcount)
 	We will processing in group/lot of ". $requestcount." to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
 
+	//Adding Lib for SuperiorCoin Functions
+	require "../vendor/autoload.php";
+	use Superior\Wallet;
+	$walletFaucet = new Superior\Wallet();
+
+
 	$hash_transfer="333-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
 
 	for ($i=0;$i<$requestcount;$i++) {
