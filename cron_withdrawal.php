@@ -71,7 +71,7 @@ if (count($btcamounts) > $requestcount)
 		echo "Counter = ".$i." -- ";
 		$wid = $withdrawalid[$i];
 		print_r($wid);
-		echo "update tbl_withdrawal set status=1,reccode= -batchno where withdrawal_id= ".$wid.".</br>";
+		echo "- update tbl_withdrawal set status=1,reccode=".$hash_transfer." where withdrawal_id= ".$wid.".</br>";
 		$db2->query("update tbl_withdrawal set status=0,reccode='".$hash_transfer."' where withdrawal_id=".$wid."");
 		//}
 	}
