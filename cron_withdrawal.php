@@ -63,7 +63,7 @@ if (count($btcamounts) > $requestcount)
 	We will processing in group/lot of ". $requestcount." to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
 
-	$hash="333-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
+	$hash_transfer="333-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
 
 	for ($i=0;$i<$requestcount;$i++) {
 		//while ( $i<= ($requestcount-1)) {
@@ -72,11 +72,11 @@ if (count($btcamounts) > $requestcount)
 		$wid = $withdrawalid[$i];
 		print_r($wid);
 		echo "update tbl_withdrawal set status=1,reccode= -batchno where withdrawal_id= ".$wid.".</br>";
-		$db2->query("update tbl_withdrawal set status=0,reccode='".$hash."' where withdrawal_id=".$wid."");
+		$db2->query("update tbl_withdrawal set status=0,reccode='".$hash_transfer."' where withdrawal_id=".$wid."");
 		//}
 	}
 
-    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number  <-1ba>	</-1ba>tchno. </h3>" ;	
+    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number:".$hash_transfer."</h3>" ;	
 		
 }
 else {
