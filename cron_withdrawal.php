@@ -59,11 +59,14 @@ print_r($btcamounts);
 
 if (count($btcamounts) > $requestcount)
 {	
+	while ( count($btcamounts)<= 10) {
+		
+	
 	echo "</br><h3>There are ". count($btcamounts)." withdrawals in our database. </br> 
 	We must have more than ". $requestcount." records to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
 
-	$hash="kjjdkjdkkjdkdkj-00hash-33e3443434-11";
+	$hash="00-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
 
 	for ($i=0;$i<count($withdrawalid);$i++) {
 		$wid = $withdrawalid[$i];
@@ -75,8 +78,7 @@ if (count($btcamounts) > $requestcount)
 	
 
     echo count($withdrawalid). " Withdrawals has been proceessed with hash number  <-1ba>	</-1ba>tchno. <br>" ;
-
-    
+	} /* end while */
 	
 		
 }
