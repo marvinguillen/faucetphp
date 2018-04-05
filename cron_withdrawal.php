@@ -59,7 +59,7 @@ print_r($btcamounts);
 
 if (count($btcamounts) > $requestcount)
 {	
-	while ( count($btcamounts)<= 10) {
+	
 		
 	
 	echo "</br><h3>There are ". count($btcamounts)." withdrawals in our database. </br> 
@@ -69,6 +69,7 @@ if (count($btcamounts) > $requestcount)
 	$hash="00-kjjdkjdkkjdkdkj-00hash-33e3443434-11";
 
 	for ($i=0;$i<count($withdrawalid);$i++) {
+		echo "</br><h2>i = ".$i."<h2></br>";
 		$wid = $withdrawalid[$i];
 		print_r($wid);
 		echo"<br>";
@@ -78,7 +79,7 @@ if (count($btcamounts) > $requestcount)
 	
 
     echo count($withdrawalid). " Withdrawals has been proceessed with hash number  <-1ba>	</-1ba>tchno. <br>" ;
-	} /* end while */
+	
 	
 		
 }
