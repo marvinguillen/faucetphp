@@ -108,7 +108,7 @@ if (count($btcamounts) > $requestcount)
 	echo "</br>Options Array echo</br>";
 	echo $options;
 
-/*
+
 
 
 
