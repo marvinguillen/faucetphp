@@ -74,6 +74,9 @@ if (count($btcamounts) > $requestcount)
 	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
 
+	print_r($btcamounts);
+	print_r($btcaddresses);
+
 
 	$options = [
 	    'destinations' => (object) [
