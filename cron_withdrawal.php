@@ -86,6 +86,7 @@ if (count($btcamounts) > $requestcount)
 
 	$pablo='5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q';
 	$dennis = '5NbCTMansKp1AmRUV9sxxcBJEi4avk3dt7RsXsxo6vFVSqZCTEsuCgXTiQZCsKM5TdGQD2m6UpM58KoDLEtX7ofH61t9hNZ';
+    
 
 	$destination1 = (object) [
 	    'amount' => '3',
@@ -98,14 +99,14 @@ if (count($btcamounts) > $requestcount)
 
 	$destination22 = array();
 
-	$destination22[1] = (object) array('ammount' => '3', 'address' => $pablo);
-	$destination22[2] = (object) array('ammount' => '2', 'address' => $dennis);
+	$destination22[1] = (object) array('amount' => '3', 'address' => $pablo);
+	$destination22[2] = (object) array('amount' => '2', 'address' => $dennis);
     
     echo "</br><h1>destination22</br></h1>";
 	print_r($destination22);
 
 	$options2 = [
-	    'destinations' => $destination1, $destination2
+	    'destinations' => $destination22
 	];
 
 
