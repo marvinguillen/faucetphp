@@ -84,8 +84,21 @@ if (count($btcamounts) > $requestcount)
 	var_dump($btcamounts);
 	var_dump($btcaddresses);
 
+	$destination1 = (object) [
+	    'amount' => '0.5',
+	    'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'
+	];
+	$destination2 = (object) [
+	    'amount' => '0.8',
+	    'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'
+	];
+
+	$options2 = [
+	    'destinations' => $destination1,$destination2
+	];
 
 
+/*
 	$options2=['destinations' => (object)
 				['amount' => 1, 
 				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'] ,
@@ -93,6 +106,7 @@ if (count($btcamounts) > $requestcount)
 				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'
 				]
 			];
+			/*
 
 	/*
 	$destination2 = (object) ['amount' => $amountF,'address' => $walletF];
