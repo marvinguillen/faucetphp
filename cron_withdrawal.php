@@ -57,9 +57,9 @@ while($res=$db->fetchArray()){
 		
 }
 echo "</br><h5>Array with adresses</br></h5>";
-print_r($btcaddresses);
+var_dump($btcaddresses);
 echo "</br></br><h5>Array with ammounts</br></h5>";
-print_r($btcamounts);
+var_dump($btcamounts);
 
 
 if (count($btcamounts) > $requestcount)
@@ -74,8 +74,8 @@ if (count($btcamounts) > $requestcount)
 	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
 
-	print_r($btcamounts[1]);
-	print_r($btcaddresses[1]);
+	var_dump($btcamounts[1]);
+	var_dump($btcaddresses[1]);
 
 
 
@@ -87,7 +87,7 @@ if (count($btcamounts) > $requestcount)
 	    ]
 	];
 
-	print_r($options);
+	var_dump($options);
 
 /*
 $adress2 = array();
