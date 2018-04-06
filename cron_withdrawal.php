@@ -100,7 +100,7 @@ if (count($btcamounts) > $requestcount)
 
 	$destination22[] = (object) array('ammount' => '2', 'address' => $dennis);
 
-	print_r($destination22)
+	print_r($destination22);
 
 	$options2 = [
 	    'destinations' => $destination22
