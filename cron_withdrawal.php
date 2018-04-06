@@ -55,11 +55,11 @@ while($res=$db->fetchArray()){
 	$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
 	var_dump($btcaddresses);
 	echo "</br>";
-	print_r($btcaddresses)
+	print_r($btcaddresses);
 
 	var_dump($btcamounts);
 	echo "</br>";
-	
+
 	var_dump($withdrawalid);
 	echo "</br>";
 		
