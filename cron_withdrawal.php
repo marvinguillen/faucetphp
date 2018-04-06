@@ -89,7 +89,8 @@ if (count($btcamounts) > $requestcount)
 	$options2=['destinations' => (object)
 				['amount' => 1, 
 				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q', 
-				'amount' => 2, 
+				'amount' => 2],
+				[ 
 				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'
 				]
 			];
