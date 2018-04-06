@@ -85,12 +85,12 @@ if (count($btcamounts) > $requestcount)
 	var_dump($btcaddresses);
 
 	$destination1 = (object) [
-	    'amount' => '0.5',
+	    'amount' => '3',
 	    'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'
 	];
 	$destination2 = (object) [
-	    'amount' => '0.8',
-	    'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'
+	    'amount' => '2',
+	    'address' => '5NbCTMansKp1AmRUV9sxxcBJEi4avk3dt7RsXsxo6vFVSqZCTEsuCgXTiQZCsKM5TdGQD2m6UpM58KoDLEtX7ofH61t9hNZ'
 	];
 
 	$options2 = [
