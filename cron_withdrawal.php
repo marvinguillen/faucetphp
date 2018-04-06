@@ -90,9 +90,26 @@ if (count($btcamounts) > $requestcount)
 	print_r($options);
 
 
-	$sup_transfer = $walletFaucet->transfer($options);
-	print_r($sup_transfer);
-	$transfer_result = json_decode($sup_transfer);
+	$adress = array();
+$amounts = array();
+
+$adress[0] = $_POST['address1'], $adress[1] = $_POST['address2'], $adress[2] = $_POST['address3'], $adress[3] = $_POST['address4'], $adress[4] = $_POST['address5'], $adress[5] = $_POST['address6'], $adress[6] = $_POST['address7'], $adress[7] = $_POST['address8'], $adress[8] = $_POST['address9'], $adress[9] = $_POST['address10'];
+$amounts[0] = $_POST['amount1'], $amounts[1] = $_POST['amount2'], $amounts[2] = $_POST['amount3'], $amounts[3] = $_POST['amount4'], $amounts[4] = $_POST['amount5'], $amounts[5] = $_POST['amount6'], $amounts[6] = $_POST['amount7'], $amounts[7] = $_POST['amount8'], $amounts[8] = $_POST['amount9'], $amounts[9] = $_POST['amount10']; 
+
+	
+	$options = [
+		'destinations' => (object)[
+			'amount' => $amounts,
+			'address' => $adress
+		]
+	] ;
+	echo "</br>";
+	print_r($options);
+
+
+	//$sup_transfer = $walletFaucet->transfer($options);
+	//print_r($sup_transfer);
+	//$transfer_result = json_decode($sup_transfer);
 	
 	$now = new DateTime();
 	echo $now->format('Y-m-d H:i:s');    // MySQL datetime format
