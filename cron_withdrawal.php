@@ -80,11 +80,12 @@ if (count($btcamounts) > $requestcount)
 	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
 
-	var_dump($btcamounts);
-	var_dump($btcaddresses);
+	
+	//var_dump($btcamounts);
+	//var_dump($btcaddresses);
 
 
-
+   /*
 
 	$options = [
 	    'destinations' => (object) [
@@ -92,47 +93,25 @@ if (count($btcamounts) > $requestcount)
 	        'address' => $btcaddresses
 	    ]
 	];
+	*/
+
+	$options=['destinations' (object) 
+				['amount' => 1, 
+				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q', 
+				'amount' => 2, 
+				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'
+				]
+			];
+ 	
+
 
 	echo "</br>Options Array var dump</br>";
 	var_dump($options);
 	echo "</br>Options Array echo</br>";
 	echo $options;
 
-/*
-$adress2 = array();
-$amounts2 = array();
 
-$adress2[0] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress2[1] = "kjdksjdskjdkj33k434345llkflkf-00--",  
-$adress2[2] = "kjdksjdskjdkj33k434345llkflkf-00--",  
-$adress2[3] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress2[4] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress2[5] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress2[6] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress2[7] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress2[8] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress2[9] = "kjdksjdskjdkj33k434345llkflkf-00--";
-$amounts2[0] = "1", 
-$amounts2[1] = "1", 
-$amounts2[2] = "1", 
-$amounts2[3] = "1", 
-$amounts2[4] = "1", 
-$amounts2[5] = "1", 
-$amounts2[6] = "1", 
-$amounts2[7] = "1", 
-$amounts2[8] = "1", 
-$amounts2[9] = "1"; 
 
-	
-	$options2 = [
-		'destinations' => (object)[
-			'amount' => $amounts2,
-			'address' => $adress2
-		]
-	] ;
-	echo "</br>";
-	print_r($options2);
-	*/
 
 
 	$sup_transfer = $walletFaucet->transfer($options);
@@ -162,7 +141,7 @@ $amounts2[9] = "1";
 			$wid = $withdrawalid[$i];
 			print_r($wid);
 			echo "- update tbl_withdrawal set status=1,reccode=".$hash_transfer." where withdrawal_id= ".$wid.".</br>";
-			$db2->query("update tbl_withdrawal set status=1,reccode='".$hash_transfer."',fee=".$transfer_fee." where withdrawal_id=".$wid."");
+			//$db2->query("update tbl_withdrawal set status=1,reccode='".$hash_transfer."',fee=".$transfer_fee." where withdrawal_id=".$wid."");
 		}
 
 	    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number:".$hash_transfer."</h3>" ;
