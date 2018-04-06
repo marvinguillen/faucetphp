@@ -89,7 +89,7 @@ if (count($btcamounts) > $requestcount)
 
 	print_r($options);
 
-
+/*
 $adress2 = array();
 $amounts2 = array();
 
@@ -123,6 +123,7 @@ $amounts2[9] = "1";
 	] ;
 	echo "</br>";
 	print_r($options2);
+	*/
 
 
 	$sup_transfer = $walletFaucet->transfer($options);
