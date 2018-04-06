@@ -80,6 +80,7 @@ if (count($btcamounts) > $requestcount)
 	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
 
+    echo "</br><h1>Var dump btc ammounts</h1></br>";
 	var_dump($btcamounts);
 	var_dump($btcaddresses);
 
@@ -90,8 +91,8 @@ if (count($btcamounts) > $requestcount)
 				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'
 				]
 			];
-
-		var_dump($options2);
+	echo "</br><h1>Var dump options2</h1></br>";
+	var_dump($options2);
 
 
 
