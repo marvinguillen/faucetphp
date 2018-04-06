@@ -84,13 +84,19 @@ if (count($btcamounts) > $requestcount)
 	var_dump($btcamounts);
 	var_dump($btcaddresses);
 
-	$options2=['destinations' => (object) 
+
+
+	$options2=['destinations' => 
 				['amount' => 1, 
 				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q', 
 				'amount' => 2, 
 				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'
 				]
 			];
+
+	$destination2 = (object) ['amount' => $amountF,'address' => $walletF];
+ 	$options2 = ['destinations' => $destination2];
+
 	echo "</br><h1>Var dump options2</h1></br>";
 	var_dump($options2);
 	echo "</br><h1>printr options2</h1></br>";
