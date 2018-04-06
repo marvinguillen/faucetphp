@@ -74,8 +74,8 @@ if (count($btcamounts) > $requestcount)
 	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
 
-	print_r($btcamounts);
-	print_r($btcaddresses);
+	print_r($btcamounts[1]);
+	print_r($btcaddresses[1]);
 
 
 	$options = [
