@@ -72,8 +72,8 @@ if (count($btcamounts) > $requestcount)
 	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
 
-	var_dump($btcamounts[1]);
-	var_dump($btcaddresses[1]);
+	var_dump($btcamounts);
+	var_dump($btcaddresses);
 
 
 
