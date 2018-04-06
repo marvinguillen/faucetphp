@@ -69,8 +69,8 @@ if (count($btcamounts) > $requestcount)
 	We will processing in group/lot of ". $requestcount." to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
 
-	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
-	$btcamounts = array_slice($btcamounts, 0, $requestcount);
+	//$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
+	//$btcamounts = array_slice($btcamounts, 0, $requestcount);
 
 	var_dump($btcamounts);
 	var_dump($btcaddresses);
