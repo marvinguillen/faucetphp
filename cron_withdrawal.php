@@ -64,9 +64,7 @@ var_dump($btcamounts);
 
 if (count($btcamounts) > $requestcount)
 {	
-	
-
-	
+		
 	echo "</br><h3>There are ". count($btcamounts)." no processed withdrawals in our database . </br> 
 	We will processing in group/lot of ". $requestcount." to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
