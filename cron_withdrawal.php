@@ -48,7 +48,9 @@ while($res=$db->fetchArray()){
     //print_r($res);		
 	$db2->queryres("select * from tbl_user where user_id='".$res['user_id']."'");
 	$address=$db2->res['address'];
-	$amount = (string)ChangetoMili($res['amount'],$currency);
+	//$amount = ChangetoMili($res['amount'],$currency);
+	$amount = sprintf("%.3f",$res['amount'],$currency);
+
 
 	$btcaddresses[count($btcaddresses)] = $address;
 	$btcamounts[count($btcamounts)] = $amount;
