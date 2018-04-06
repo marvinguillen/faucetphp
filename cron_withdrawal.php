@@ -93,6 +93,7 @@ if (count($btcamounts) > $requestcount)
 			];
 	echo "</br><h1>Var dump options2</h1></br>";
 	var_dump($options2);
+	print_r($options2);
 
 
 
