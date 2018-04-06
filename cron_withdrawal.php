@@ -113,7 +113,7 @@ if (count($btcamounts) > $requestcount)
 
 
 
-	$sup_transfer = $walletFaucet->transfer($options);
+	$sup_transfer = $walletFaucet->transfer($options2);
 	print_r($sup_transfer);
 	$transfer_result = json_decode($sup_transfer);
 	
@@ -140,7 +140,7 @@ if (count($btcamounts) > $requestcount)
 			$wid = $withdrawalid[$i];
 			print_r($wid);
 			echo "- update tbl_withdrawal set status=1,reccode=".$hash_transfer." where withdrawal_id= ".$wid.".</br>";
-			$db2->query("update tbl_withdrawal set status=1,reccode='".$hash_transfer."',fee=".$transfer_fee." where withdrawal_id=".$wid."");
+			//$db2->query("update tbl_withdrawal set status=1,reccode='".$hash_transfer."',fee=".$transfer_fee." where withdrawal_id=".$wid."");
 		}
 
 	    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number:".$hash_transfer."</h3>" ;
