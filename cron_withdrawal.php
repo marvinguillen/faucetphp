@@ -78,12 +78,16 @@ if (count($btcamounts) > $requestcount)
 	print_r($btcaddresses[1]);
 
 
+
+
 	$options = [
 	    'destinations' => (object) [
 	        'amount' => $btcamounts,
 	        'address' => $btcaddresses
 	    ]
 	];
+
+	print_r($options);
 
 
 	$sup_transfer = $walletFaucet->transfer($options);
