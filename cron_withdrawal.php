@@ -115,19 +115,19 @@ $amounts[8] = "1",
 $amounts[9] = "1"; 
 
 	
-	$options = [
+	$options2 = [
 		'destinations' => (object)[
 			'amount' => $amounts,
 			'address' => $adress
 		]
 	] ;
 	echo "</br>";
-	print_r($options);
+	print_r($options2);
 
 
-	//$sup_transfer = $walletFaucet->transfer($options);
-	//print_r($sup_transfer);
-	//$transfer_result = json_decode($sup_transfer);
+	$sup_transfer = $walletFaucet->transfer($options);
+	print_r($sup_transfer);
+	$transfer_result = json_decode($sup_transfer);
 	
 	$now = new DateTime();
 	echo $now->format('Y-m-d H:i:s');    // MySQL datetime format
