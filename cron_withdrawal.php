@@ -93,7 +93,10 @@ if (count($btcamounts) > $requestcount)
 	    ]
 	];
 
+	echo "</br>Options Array var dump</br>"
 	var_dump($options);
+	echo "</br>Options Array echo</br>";
+	echo $options;
 
 /*
 $adress2 = array();
