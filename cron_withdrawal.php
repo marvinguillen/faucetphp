@@ -77,8 +77,8 @@ if (count($btcamounts) > $requestcount)
 
 	$options = [
 	    'destinations' => (object) [
-	        'amount' => $transfer_ammount,
-	        'address' => $transfer_address
+	        'amount' => $btcamounts,
+	        'address' => $btcaddresses
 	    ]
 	];
 
@@ -86,9 +86,10 @@ if (count($btcamounts) > $requestcount)
 	$sup_transfer = $walletFaucet->transfer($options);
 	print_r($sup_transfer);
 	$transfer_result = json_decode($sup_transfer);
+	
 	$now = new DateTime();
 	echo $now->format('Y-m-d H:i:s');    // MySQL datetime format
-	echo $now->getTimestamp();  
+	echo $now->getTbhimestamp();  
 
 
 
@@ -125,7 +126,6 @@ if (count($btcamounts) > $requestcount)
 		"</br>Error Message: ".$transfer_errormessage;
 	}
 
-	
 		
 }
 else {
