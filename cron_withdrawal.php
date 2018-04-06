@@ -94,8 +94,10 @@ if (count($btcamounts) > $requestcount)
 				]
 			];
 
+	/*
 	$destination2 = (object) ['amount' => $amountF,'address' => $walletF];
  	$options2 = ['destinations' => $destination2];
+ 	*/
 
 	echo "</br><h1>Var dump options2</h1></br>";
 	var_dump($options2);
