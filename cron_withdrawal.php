@@ -80,12 +80,21 @@ if (count($btcamounts) > $requestcount)
 	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
 
-	
-	//var_dump($btcamounts);
-	//var_dump($btcaddresses);
+	var_dump($btcamounts);
+	var_dump($btcaddresses);
+
+	$options2=['destinations' (object) 
+				['amount' => 1, 
+				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q', 
+				'amount' => 2, 
+				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'
+				]
+			];
+
+		var_dump($options2);
 
 
-   /*
+
 
 	$options = [
 	    'destinations' => (object) [
@@ -93,24 +102,13 @@ if (count($btcamounts) > $requestcount)
 	        'address' => $btcaddresses
 	    ]
 	];
-	*/
-
-	$options=['destinations' (object) 
-				['amount' => 1, 
-				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q', 
-				'amount' => 2, 
-				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'
-				]
-			];
- 	
-
 
 	echo "</br>Options Array var dump</br>";
 	var_dump($options);
 	echo "</br>Options Array echo</br>";
 	echo $options;
 
-
+/*
 
 
 
@@ -141,7 +139,7 @@ if (count($btcamounts) > $requestcount)
 			$wid = $withdrawalid[$i];
 			print_r($wid);
 			echo "- update tbl_withdrawal set status=1,reccode=".$hash_transfer." where withdrawal_id= ".$wid.".</br>";
-			//$db2->query("update tbl_withdrawal set status=1,reccode='".$hash_transfer."',fee=".$transfer_fee." where withdrawal_id=".$wid."");
+			$db2->query("update tbl_withdrawal set status=1,reccode='".$hash_transfer."',fee=".$transfer_fee." where withdrawal_id=".$wid."");
 		}
 
 	    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number:".$hash_transfer."</h3>" ;
