@@ -90,35 +90,35 @@ if (count($btcamounts) > $requestcount)
 	print_r($options);
 
 
-$adress = array();
-$amounts = array();
+$adress2 = array();
+$amounts2 = array();
 
-$adress[0] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress[1] = "kjdksjdskjdkj33k434345llkflkf-00--",  
-$adress[2] = "kjdksjdskjdkj33k434345llkflkf-00--",  
-$adress[3] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress[4] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress[5] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress[6] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress[7] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress[8] = "kjdksjdskjdkj33k434345llkflkf-00--", 
-$adress[9] = "kjdksjdskjdkj33k434345llkflkf-00--";
-$amounts[0] = "1", 
-$amounts[1] = "1", 
-$amounts[2] = "1", 
-$amounts[3] = "1", 
-$amounts[4] = "1", 
-$amounts[5] = "1", 
-$amounts[6] = "1", 
-$amounts[7] = "1", 
-$amounts[8] = "1", 
-$amounts[9] = "1"; 
+$adress2[0] = "kjdksjdskjdkj33k434345llkflkf-00--", 
+$adress2[1] = "kjdksjdskjdkj33k434345llkflkf-00--",  
+$adress2[2] = "kjdksjdskjdkj33k434345llkflkf-00--",  
+$adress2[3] = "kjdksjdskjdkj33k434345llkflkf-00--", 
+$adress2[4] = "kjdksjdskjdkj33k434345llkflkf-00--", 
+$adress2[5] = "kjdksjdskjdkj33k434345llkflkf-00--", 
+$adress2[6] = "kjdksjdskjdkj33k434345llkflkf-00--", 
+$adress2[7] = "kjdksjdskjdkj33k434345llkflkf-00--", 
+$adress2[8] = "kjdksjdskjdkj33k434345llkflkf-00--", 
+$adress2[9] = "kjdksjdskjdkj33k434345llkflkf-00--";
+$amounts2[0] = "1", 
+$amounts2[1] = "1", 
+$amounts2[2] = "1", 
+$amounts2[3] = "1", 
+$amounts2[4] = "1", 
+$amounts2[5] = "1", 
+$amounts2[6] = "1", 
+$amounts2[7] = "1", 
+$amounts2[8] = "1", 
+$amounts2[9] = "1"; 
 
 	
 	$options2 = [
 		'destinations' => (object)[
-			'amount' => $amounts,
-			'address' => $adress
+			'amount' => $amounts2,
+			'address' => $adress2
 		]
 	] ;
 	echo "</br>";
