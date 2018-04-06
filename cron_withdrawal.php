@@ -99,8 +99,8 @@ if (count($btcamounts) > $requestcount)
 
 	$destination22 = array();
 
-	$destination22[1] = (object) array('amount' => '3', 'address' => $pablo);
-	$destination22[2] = (object) array('amount' => '2', 'address' => $dennis);
+	$destination22[1] = (object) array('amount' => '1', 'address' => $pablo);
+	$destination22[2] = (object) array('amount' => '1', 'address' => $dennis);
     
     echo "</br><h1>destination22</br></h1>";
 	print_r($destination22);
