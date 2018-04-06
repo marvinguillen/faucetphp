@@ -53,9 +53,12 @@ while($res=$db->fetchArray()){
 	$btcaddresses[count($btcaddresses)] = $address;
 	$btcamounts[count($btcamounts)] = $amount;
 	$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
-	echo $btcaddresses;
-	echo $btcamounts;
-	echo $withdrawalid;
+	var_dump($btcaddresses);
+	echo "</br>";
+	var_dump($btcamounts);
+	echo "</br>";
+	var_dump($withdrawalid);
+	echo "</br>";
 		
 }
 echo "</br><h5>Array with adresses</br></h5>";
