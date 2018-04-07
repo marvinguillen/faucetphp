@@ -91,9 +91,27 @@ if (count($btcamounts) > $requestcount)
     echo "</br><h1>destination22</br></h1>";
 	print_r($destination22);
 
+	
+
 	$options2 = [
 	    'destinations' => $destination22[1],$destination22[2]
 	];
+
+	echo "</br><h1>option2</br></h1>";
+	print_r($options2);
+	
+
+	for ($i=1; $i <this.count($destination22) ; $i++) { 
+		
+		$options2 = [
+			'destinations' => $destination22[i];
+		];
+	}
+
+	echo "</br><h1>option2</br></h1>";
+	print_r($options2);
+
+		
 
 
 	$sup_transfer = $walletFaucet->transfer($options2);
