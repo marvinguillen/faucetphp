@@ -49,7 +49,8 @@ while($res=$db->fetchArray()){
 	$btcamounts[count($btcamounts)] = $amount;
 	$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
 
-	$destinations[count($destinations)] = (object) array('amount' => $amount 'address' => $address);
+	$destinations[count($destinations)] = 
+	(object) array('amount' => $amount, 'address' => $address);
 
 
 		
