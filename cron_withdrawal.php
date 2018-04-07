@@ -70,7 +70,7 @@ if (count($btcamounts) > $requestcount)
 
 	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
-	$destinations = array_slice($destinations, 0, $requestcount);
+	$destinations = array_slice($destinations, 0, 3);
 
     echo "</br><h1>Var dump btc ammounts</h1></br>";
 	var_dump($btcamounts);
@@ -104,7 +104,7 @@ if (count($btcamounts) > $requestcount)
 	
     
 	$options2 = [
-	    'destinations' => $destination22[1],$destination22[2]
+	    'destinations' => $destinations
 	];
 	
 
