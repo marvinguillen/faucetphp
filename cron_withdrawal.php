@@ -100,7 +100,7 @@ if (count($btcamounts) > $requestcount)
 	echo "</br><h1>option2</br></h1>";
 	print_r($options2);
 	
-
+	/*
 	for ($i=1; $i<=count($destination22) ; $i++) { 
 		
 		$options2 = [
@@ -110,6 +110,8 @@ if (count($btcamounts) > $requestcount)
 
 	echo "</br><h1>option2</br></h1>";
 	print_r($options2);
+
+	*/
 
 		
 
