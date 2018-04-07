@@ -51,14 +51,8 @@ while($res=$db->fetchArray()){
 
 	$destinations[count($destinations)] = 
 	(object) array('amount' => $amount, 'address' => $address);
-
-
-		
+	
 }
-echo "</br><h5>Array with adresses</br></h5>";
-echo $btcaddresses;
-echo "</br></br><h5>Array with ammounts</br></h5>";
-echo $btcamounts;
 
 
 if (count($btcamounts) > $requestcount)
@@ -68,14 +62,10 @@ if (count($btcamounts) > $requestcount)
 	We will processing in group/lot of ". $requestcount." to run Superior Transfer cronjob.</br>";
 	echo "RUnning cronjob </h3>";
 
-	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
 	$destinations = array_slice($destinations, 0, 3);
 
-    echo "</br><h1>Var dump btc ammounts</h1></br>";
-	var_dump($btcamounts);
-	var_dump($btcaddresses);
-
+    
 	$pablo='5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q';
 	$dennis = '5NbCTMansKp1AmRUV9sxxcBJEi4avk3dt7RsXsxo6vFVSqZCTEsuCgXTiQZCsKM5TdGQD2m6UpM58KoDLEtX7ofH61t9hNZ';
     
@@ -107,13 +97,9 @@ if (count($btcamounts) > $requestcount)
 	    'destinations' => $destinations
 	];
 	
-
 	echo "</br><h1>option2</br></h1>";
 	print_r($options2);
 	
-
-		
-
 
 	$sup_transfer = $walletFaucet->transfer($options2);
 	print_r($sup_transfer);
