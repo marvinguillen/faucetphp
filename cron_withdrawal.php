@@ -49,7 +49,7 @@ while($res=$db->fetchArray()){
 	$btcamounts[count($btcamounts)] = $amount;
 	$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
 
-	$destinations[count($withdrawalid)] = (object) array('amount' => $btcamounts 'address' => $address;);
+	$destinations[count($destinations)] = (object) array('amount' => $amount 'address' => $address;);
 
 
 		
@@ -90,8 +90,8 @@ if (count($btcamounts) > $requestcount)
 
 	
 	$destination22 = array();
-	$destination22[1] = (object) array('amount' => '1', 'address' => $pablo."r");
-	$destination22[2] = (object) array('amount' => '1', 'address' => $dennis."r");
+	$destination22[1] = (object) array('amount' => '1', 'address' => $pablo);
+	$destination22[2] = (object) array('amount' => '1', 'address' => $dennis);
 	
     
 	echo "</br><h1>destinations</br></h1>";
