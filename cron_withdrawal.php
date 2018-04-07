@@ -106,7 +106,7 @@ if (count($btcamounts) > $requestcount)
 	print_r($destination22);
 
 	$options2 = [
-	    'destinations' => $destination22
+	    'destinations' => $destination22[1],$destination22[2]
 	];
 
 
