@@ -34,6 +34,7 @@ $db->query("select * from tbl_withdrawal where status=0");
 $btcaddresses = array();
 $btcamounts = array();
 $withdrawalid = array();
+$destinations = array();
 
 while($res=$db->fetchArray()){
 
@@ -47,6 +48,9 @@ while($res=$db->fetchArray()){
 	$btcaddresses[count($btcaddresses)] = $address;
 	$btcamounts[count($btcamounts)] = $amount;
 	$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
+
+	$destinations[count($withdrawalid)] = (object) array('amount' => $btcamounts 'address' => $address;);
+
 
 		
 }
@@ -65,6 +69,7 @@ if (count($btcamounts) > $requestcount)
 
 	$btcaddresses= array_slice($btcaddresses, 0, $requestcount);
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
+	$destinations = array_slice($destinations, 0, $requestcount);
 
     echo "</br><h1>Var dump btc ammounts</h1></br>";
 	var_dump($btcamounts);
@@ -83,17 +88,17 @@ if (count($btcamounts) > $requestcount)
 	    'address' => $dennis
 	];
 
+	
 	$destination22 = array();
-	$destination22[1] = (object) array('amount' => '1', 'address' => $pablo);
-	$destination22[2] = (object) array('amount' => '1', 'address' => $dennis);
-
+	$destination22[1] = (object) array('amount' => '1', 'address' => $pablo."r");
+	$destination22[2] = (object) array('amount' => '1', 'address' => $dennis."r");
+	
     
+	echo "</br><h1>destinations</br></h1>";
+	print_r($destinations);
+
     echo "</br><h1>destination22</br></h1>";
 	print_r($destination22);
-
-
-	$transfer = $walletFaucet->transfer(['destinations' => ['amount' => 1, 'address' => $pablo, 'amount' => 2, 'address' => $dennis], 'priority' => 1]); // Multiple payments in one transaction
-print_r($transfer);
 
 	
     
