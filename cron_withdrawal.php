@@ -24,12 +24,6 @@ function ChangetoMili($amount,&$currency) {
 $db=new DbConnector;
 $db->queryres("select * from tbl_config where header='currency'");
 $faucetcurrency=$db->res['value'];
-$db->queryres("select * from tbl_config where header='pusername'");
-$pusername=$db->res['value'];
-$db->queryres("select * from tbl_config where header='papiname'");
-$papiname=$db->res['value'];
-$db->queryres("select * from tbl_config where header='ppassword'");
-$ppassword=$db->res['value'];
 $db->queryres("select * from tbl_config where header='requestcount'");
 $requestcount=$db->res['value'];
 	
@@ -53,15 +47,7 @@ while($res=$db->fetchArray()){
 	$btcaddresses[count($btcaddresses)] = $address;
 	$btcamounts[count($btcamounts)] = $amount;
 	$withdrawalid[count($withdrawalid)] = $res['withdrawal_id'];
-	var_dump($btcaddresses);
-	echo "</br>";
-	print_r($btcaddresses);
 
-	var_dump($btcamounts);
-	echo "</br>";
-
-	var_dump($withdrawalid);
-	echo "</br>";
 		
 }
 echo "</br><h5>Array with adresses</br></h5>";
@@ -98,9 +84,9 @@ if (count($btcamounts) > $requestcount)
 	];
 
 	$destination22 = array();
-
 	$destination22[1] = (object) array('amount' => '1', 'address' => $pablo);
 	$destination22[2] = (object) array('amount' => '1', 'address' => $dennis);
+
     
     echo "</br><h1>destination22</br></h1>";
 	print_r($destination22);
@@ -108,45 +94,6 @@ if (count($btcamounts) > $requestcount)
 	$options2 = [
 	    'destinations' => $destination22[1],$destination22[2]
 	];
-
-
-/*
-	$options2=['destinations' => (object)
-				['amount' => 1, 
-				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'] ,
-				['amount' => 2, 
-				'address' => '5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q'
-				]
-			];
-			/*
-
-	/*
-	$destination2 = (object) ['amount' => $amountF,'address' => $walletF];
- 	$options2 = ['destinations' => $destination2];
- 	*/
-
-	echo "</br><h1>Var dump options2</h1></br>";
-	var_dump($options2);
-	echo "</br><h1>printr options2</h1></br>";
-	print_r($options2);
-
-
-
-
-	$options = [
-	    'destinations' => (object) [
-	        'amount' => $btcamounts,
-	        'address' => $btcaddresses
-	    ]
-	];
-
-	echo "</br></br>Options Array var dump</br>";
-	var_dump($options);
-	echo "</br>Options Array echo</br>";
-	echo $options;
-
-
-
 
 
 	$sup_transfer = $walletFaucet->transfer($options2);
@@ -191,7 +138,6 @@ if (count($btcamounts) > $requestcount)
 		"Error Code: ".$transfer_errorcode. 
 		"</br>Error Message: ".$transfer_errormessage;
 	}
-
 		
 }
 else {
