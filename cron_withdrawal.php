@@ -91,22 +91,16 @@ if (count($btcamounts) > $requestcount)
     echo "</br><h1>destination22</br></h1>";
 	print_r($destination22);
 
-	 $options2= ['destinations' => 
-				 	['amount' => 1, 
-				 	'address' => $pablo, 
-				 	'amount' => 2, 
-				 	'address' =>$dennis
-					 ], 
-		 			'priority' => 1
-	 			]; // Multiple payments in one transaction
 
+	$transfer = $walletFaucet->transfer(['destinations' => ['amount' => 1, 'address' => $pablo, 'amount' => 2, 'address' => $dennis], 'priority' => 1]); // Multiple payments in one transaction
+print_r($transfer);
 
 	
-    /*
+    
 	$options2 = [
 	    'destinations' => $destination22[1],$destination22[2]
 	];
-	*/
+	
 
 	echo "</br><h1>option2</br></h1>";
 	print_r($options2);
