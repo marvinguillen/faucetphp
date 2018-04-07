@@ -101,7 +101,7 @@ if (count($btcamounts) > $requestcount)
 	print_r($options2);
 	
 
-	for ($i=1; $i <this.count($destination22) ; $i++) { 
+	for ($i=1; $i <count($destination22) ; $i++) { 
 		
 		$options2 = [
 			'destinations' => $destination22[i];
