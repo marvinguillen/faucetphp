@@ -200,6 +200,7 @@ $smarty->assign('faucet_balance',$realBalance);
 
 
 
+
 $smarty->display('template/index.tpl');
 }
 
