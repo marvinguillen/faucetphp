@@ -1,7 +1,7 @@
 # PHPfaucet 
 PHPFaucet is an OpenSource software to run faucet for cryptocoins like Bitcoin, Dogecoin, Litecoin, Darkcoin and Peercoin. PHPFaucet allow you to make a faucet website within ten minutes. all PHPFaucet payments handle through AsMoney
 
-[screenshot]: https://github.com/cesardanielhg/superiorphp/screenshot.png
+[screenshot]: https://github.com/cesardanielhg/faucetphp/blob/master/screenshot.jpg
 
 
 #Installation
