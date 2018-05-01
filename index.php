@@ -1,5 +1,6 @@
 <?php
-ini_set('display_errors', true);
+//ini_set('display_errors', true);
+//  sudo chmod -R 777 faucetphp;
 
 require_once "header.php";
 
