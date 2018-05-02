@@ -7,12 +7,11 @@ require_once "header.php";
 require_once "maincore.php";
 
 //Adding Lib for SuperiorCoin Functions
-/*
+
 require "../vendor/autoload.php";
 use Superior\Wallet;
 $walletFaucet = new Superior\Wallet();
 $balanceFaucet = $walletFaucet->getRealBalance();
-*/
 
 
 
@@ -199,14 +198,14 @@ $smarty->assign('captcha',solvemedia_get_html($privkey));
 
 
 //$getfaucetbal = json_decode($balanceFaucet);
-/*
+
 $realBalance = $balanceFaucet->{'unlocked_balance'};
 
 
 $smarty->assign('faucet_balance',$realBalance);  
-*/
 
-$smarty->assign('faucet_balance','190.99');  
+
+//$smarty->assign('faucet_balance','190.99');  
 
 
 
