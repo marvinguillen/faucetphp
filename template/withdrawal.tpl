@@ -35,7 +35,7 @@
 
           <h3 class="panel-title">Withdrawal
             <span class="pull-right">
-            {$credit} {$curency}
+            {$credit} SUP <!--{$curency}-->
             </span>
           </h3>
 
@@ -140,7 +140,7 @@
 
           <div class="col-lg-9 mx-auto" style="border:1px solid #ccc;">
             <h3>Withdraw to coin</h3>
-            You can withdraw balance directly to your crypto address but you need<br><br>
+            You can withdraw balance directly to your SUP wallet address but you need<br><br>
             your balance should higher than {$cur_min}<br>
              Payment will be proceed with delay
              <br><br><br><br><br><br>
