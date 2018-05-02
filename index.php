@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', true);
+//ini_set('display_errors', true);
 //  sudo chmod -R 777 faucetphp;
 
 require_once "header.php";
@@ -16,8 +16,6 @@ $walletFaucet = new Superior\Wallet();
 
 //$balanceFaucet = $walletFaucet->getRealBalance();
 //$balanceFaucet = $walletFaucet->getBalance();
-
-
 
 
 
@@ -105,9 +103,6 @@ $solvemedia_response = solvemedia_check_answer($verkey,$_SERVER["REMOTE_ADDR"],$
 if(isset($uid)){
 
 
-
-
-
 if(isset($_SESSION['user']['win'])){
 
 	$db->queryres("select * from tbl_config where header='currency'");
@@ -131,19 +126,6 @@ if(isset($_SESSION['error']['capt'])){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 $db->queryres("select reset from tbl_user where user_id='$uid' or ip='$ip' order by reset desc");
 
 	if($db->res['reset']-time() > 0){
@@ -153,13 +135,6 @@ $db->queryres("select reset from tbl_user where user_id='$uid' or ip='$ip' order
 		$smarty->assign('timer_amount',$db->res['reset']-time());
 
 	}
-
-
-
-
-
-
-
 
 
 	$with=array();
@@ -180,20 +155,8 @@ $db->queryres("select reset from tbl_user where user_id='$uid' or ip='$ip' order
 
 $smarty->assign('captcha',solvemedia_get_html($privkey));
 
-
-
-
-
 }else{
-
-	
-
-	$smarty->assign('notlogged',true);
-
-	
-
-	
-
+	$smarty->assign('notlogged',true);	
 }
 
 
@@ -212,9 +175,6 @@ $smarty->assign('faucet_balance',$realBalance);
 
 
 $smarty->assign('faucet_balance','190.99');  
-
-
-
 
 
 
