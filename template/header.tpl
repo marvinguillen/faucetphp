@@ -58,8 +58,10 @@
 			 	<li class="nav-item"><a  class="nav-link" href="withdrawal.php">Withdrawal</a></li>
         <!--
 			 	<li class="nav-item"><a class="nav-link"  href="donate.php">Donate</a></li>
-        -->                        
-			 	<li><a  class="nav-link" href="referral.php">Referral</a></li>                        
+
+			 	<li><a  class="nav-link" href="referral.php">Referral</a></li> 
+
+        -->                       
 			 	<li class="nav-item">
 			 		<a  class="nav-link" href="pass.php">Change Password</a>
 			 	</li>                                      
