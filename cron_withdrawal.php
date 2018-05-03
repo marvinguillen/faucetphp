@@ -63,7 +63,7 @@ if (count($btcamounts) > $requestcount)
 	echo "RUnning cronjob </h3>";
 
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
-	$destinations = array_slice($destinations, 0, 3);
+	$destinations = array_slice($destinations, 0, $requestcount);
 
     
 	$pablo='5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q';
