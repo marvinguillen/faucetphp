@@ -54,7 +54,7 @@ if( isset($_POST['currency'] ) ){
 	
 	if($amount>=$db->res['value']){
 		if($userdet['credit']>=$amount){
-			$prepare=$db->mysqli->prepare("insert into tbl_withdrawal (user_id,amount,type) values (?,?,1) ");
+			$prepare=$db->mysqli->prepare("insert into tbl_withdrawal (user_id,amount,type, reccode) values (?,?,1,'dsdsdsds') ");
 			$prepare->bind_param('id',$uid,$fees);
 			$prepare->execute();
 			$prepare->close();

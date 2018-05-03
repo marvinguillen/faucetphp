@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-02 18:31:35
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-03 11:29:29
          compiled from "template/withdrawal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:8496928185aea3e91734441-91888442%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'af699788d530083c1af5de579fe52cb308b5b680' => 
     array (
       0 => 'template/withdrawal.tpl',
-      1 => 1525306916,
+      1 => 1525368400,
       2 => 'file',
     ),
   ),
@@ -289,35 +289,7 @@ $_smarty_tpl->tpl_vars['foo']->_loop = true;
 
 
        
-      <?php echo '<script'; ?>
- type="text/javascript">
-      function checkcoin() {
-       
-      var address = document.coin.address.value;
-      var amount = document.coin.amount.value;
-
-
-      if (amount <= 0) {
-      alert('Amount is incorrect');
-      return false;
-
-      }
-
-       if (address.length <= 15 )
-      {
-          alert('Crypto address is not correct ');
-      return false;
-      }
-
-      if(/^[a-zA-Z0-9- ]*$/.test(address) == false) {
-          alert('Crypto address is not correct ');
-      return false;
-      } 
-
-      return true;
-      }
-      <?php echo '</script'; ?>
->
+      
 
 
 
@@ -361,6 +333,39 @@ $_smarty_tpl->tpl_vars['foo']->_loop = true;
     </div>
     
     </form>
+
+
+
+
+    <?php echo '<script'; ?>
+ type="text/javascript">
+      function checkcoin() {
+       
+      var address = document.coin.address.value;
+      var amount = document.coin.amount.value;
+
+
+      if (amount <= 0) {
+      alert('Amount is incorrect');
+      return false;
+
+      }
+
+       if (address.length <= 15 )
+      {
+          alert('Crypto address is not correct ');
+      return false;
+      }
+
+      if(/^[a-zA-Z0-9- ]*$/.test(address) == false) {
+          alert('Crypto address is not correct ');
+      return false;
+      } 
+
+      return true;
+      }
+      <?php echo '</script'; ?>
+>
     
   </div>
 </div>
