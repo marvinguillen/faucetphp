@@ -111,8 +111,9 @@ if (count($btcamounts) >= $requestcount)
 		}
 
 	    $db->query("insert into tbl_cronjob_history 
-			(  run_date, success,total_amount,total_transfers, fee,  hash_transfer ) 
-	 values (".$run_date.",1 ,".$total_amount.",".$requestcount.",".$transfer_fee.",".$hash_transfer." )
+			(  run_date, success,total_amount,total_transfers, fee, hash_transfer ) 
+	 values (".$run_date.",1 ,".$total_amount.",".$requestcount.",".$transfer_fee.","'rffrf'
+	 " )
 	 		 ");
 
 	    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number:".$hash_transfer."</h3>" ;
