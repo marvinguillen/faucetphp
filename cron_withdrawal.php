@@ -11,6 +11,7 @@ use Superior\Wallet;
 $walletFaucet = new Superior\Wallet();
 
 
+
 $now = new DateTime();
 //echo $now->format('Y-m-d H:i:s');    // MySQL datetime format
 $run_date= $now->getTimestamp();
@@ -31,9 +32,7 @@ $db=new DbConnector;
 $db->queryres("select * from tbl_config where header='currency'");
 $faucetcurrency=$db->res['value'];
 $db->queryres("select * from tbl_config where header='requestcount'");
-$requestcount=$db->res['value'];
-
-$requestcount = 3 ; 
+$requestcount=$db->res['value']; 
 	
 
 //Change to mili bitcoin because asmoney get currencies based on milicoin
@@ -73,8 +72,7 @@ if (count($btcamounts) >= $requestcount)
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
 	$destinations = array_slice($destinations, 0, $requestcount);
     $total_amount = array_sum($btcamounts);
-
- 
+     
     
 	$options2 = [
 	    'destinations' => $destinations
@@ -100,7 +98,7 @@ if (count($btcamounts) >= $requestcount)
 
 		for ($i=0;$i<$requestcount;$i++) {
 			$wid = $withdrawalid[$i];
-			echo "--> Running transfer number: " .$i. "/ with Withdrawal id:" .$wid. "</br>";
+			echo "</br>--> Running transfer number: " .$i. "/ with Withdrawal id:" .$wid;
 			/*
 			echo "- update tbl_withdrawal set status=1,reccode=".$hash_transfer." where withdrawal_id= ".$wid.".</br>";
 			*/
@@ -110,10 +108,12 @@ if (count($btcamounts) >= $requestcount)
 			
 		}
 
-	    $db->query("insert into tbl_cronjob_history 
-			(  run_date, success,total_amount,total_transfers, fee,  hash_transfers ) 
-	 values (".$run_date.",1 ,".$total_amount.", ".$requestcount.",".$transfer_fee.",".$hash_transfer." )
-	 		 ");
+		$db->query("insert into tbl_cronjob_history 
+			(  run_date, success,total_amount,total_transfers, fee, hash_transfers ) 
+	 values (".$run_date.",1 ,".$total_amount.", ".$requestcount.",".$transfer_fee.
+	 ", '$hash_transfer'  ) ");
+
+	    
 
 	    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number:".$hash_transfer."</h3>" ;
 
@@ -127,6 +127,14 @@ if (count($btcamounts) >= $requestcount)
 		echo 
 		"Error Code: ".$transfer_errorcode. 
 		"</br>Error Message: ".$transfer_errormessage;
+
+		$db->query("insert into tbl_cronjob_history 
+			(  run_date, success,total_amount,total_transfers, fee, error_transfer ) 
+	 values (".$run_date.",1 ,".$total_amount.", ".$requestcount.",".$transfer_errorcode.
+	 ", '$transfer_errormessage'  ) ");
+
+
+
 	}
 		
 }
