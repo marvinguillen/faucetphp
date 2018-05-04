@@ -33,7 +33,7 @@ $faucetcurrency=$db->res['value'];
 $db->queryres("select * from tbl_config where header='requestcount'");
 $requestcount=$db->res['value'];
 
-
+$requestcount = 3 ; 
 	
 
 //Change to mili bitcoin because asmoney get currencies based on milicoin
@@ -109,7 +109,7 @@ if (count($btcamounts) >= $requestcount)
 			
 		}
 
-	    $db2->query("insert into tbl_cronjob_history 
+	    $db->query("insert into tbl_cronjob_history 
 			(  run_date, success,total_amount,total_transfers, fee,  hash_transfer ) 
 	 values (".$run_date.",1 ,".$total_amount.", ".$requestcount." , ".$transfer_fee." ,  ".$hash_transfer." )
 	 		 ");
