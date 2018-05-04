@@ -6,9 +6,11 @@ require_once "includes/dbconnector.class.php";
 
 //Adding Lib for SuperiorCoin Functions
 
+
 require "../vendor/autoload.php";
 use Superior\Wallet;
 $walletFaucet = new Superior\Wallet();
+
 
 
 
@@ -128,10 +130,10 @@ if (count($btcamounts) >= $requestcount)
 		"Error Code: ".$transfer_errorcode. 
 		"</br>Error Message: ".$transfer_errormessage;
 
-		$db->query("insert into tbl_cronjob_history 
+		/*$db->query("insert into tbl_cronjob_history 
 			(  run_date, success,total_amount,total_transfers, fee, error_transfer ) 
 	 values (".$run_date.",1 ,".$total_amount.", ".$requestcount.",".$transfer_errorcode.
-	 ", '$transfer_errormessage'  ) ");
+	 ", '$transfer_errormessage'  ) ");*/
 
 
 
