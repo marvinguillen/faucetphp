@@ -5,10 +5,16 @@ require_once "maincore.php";
 require_once "includes/dbconnector.class.php";
 
 //Adding Lib for SuperiorCoin Functions
+/*
 require "../vendor/autoload.php";
 use Superior\Wallet;
 $walletFaucet = new Superior\Wallet();
+*/
 
+$now = new DateTime();
+//echo $now->format('Y-m-d H:i:s');    // MySQL datetime format
+$running_datetime= $now->getTimestamp();
+	
 
 
 function ChangetoMili($amount,&$currency) {
@@ -26,6 +32,11 @@ $db->queryres("select * from tbl_config where header='currency'");
 $faucetcurrency=$db->res['value'];
 $db->queryres("select * from tbl_config where header='requestcount'");
 $requestcount=$db->res['value'];
+
+$db->query("insert into tbl_cronjob_history 
+			(success,run_date) 
+	 values (1, ".$running_datetime." )
+	 		 ");
 	
 
 //Change to mili bitcoin because asmoney get currencies based on milicoin
@@ -60,7 +71,7 @@ if (count($btcamounts) > $requestcount)
 		
 	echo "</br><h3>There are ". count($btcamounts)." no processed withdrawals in our database . </br> 
 	We will processing in group/lot of ". $requestcount." to run Superior Transfer cronjob.</br>";
-	echo "RUnning cronjob </h3>";
+	echo "Running cronjob... </h3>";
 
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
 	$destinations = array_slice($destinations, 0, $requestcount);
@@ -105,9 +116,7 @@ if (count($btcamounts) > $requestcount)
 	print_r($sup_transfer);
 	$transfer_result = json_decode($sup_transfer);
 	
-	$now = new DateTime();
-	echo $now->format('Y-m-d H:i:s');    // MySQL datetime format
-	echo $now->getTimestamp();  
+	 
 
 
 
