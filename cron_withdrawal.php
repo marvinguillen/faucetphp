@@ -5,15 +5,15 @@ require_once "maincore.php";
 require_once "includes/dbconnector.class.php";
 
 //Adding Lib for SuperiorCoin Functions
-/*
+
 require "../vendor/autoload.php";
 use Superior\Wallet;
 $walletFaucet = new Superior\Wallet();
-*/
+
 
 $now = new DateTime();
 //echo $now->format('Y-m-d H:i:s');    // MySQL datetime format
-$running_datetime= $now->getTimestamp();
+$run_date= $now->getTimestamp();
 	
 
 
@@ -33,10 +33,7 @@ $faucetcurrency=$db->res['value'];
 $db->queryres("select * from tbl_config where header='requestcount'");
 $requestcount=$db->res['value'];
 
-$db->query("insert into tbl_cronjob_history 
-			(success,run_date) 
-	 values (1, ".$running_datetime." )
-	 		 ");
+
 	
 
 //Change to mili bitcoin because asmoney get currencies based on milicoin
@@ -75,50 +72,19 @@ if (count($btcamounts) > $requestcount)
 
 	$btcamounts = array_slice($btcamounts, 0, $requestcount);
 	$destinations = array_slice($destinations, 0, $requestcount);
+    $total_amount = array_sum($btcamounts);
 
-    
-	$pablo='5NKJdxdiCmccLyw53D8MzUhZYzDDvdBXshrVhUgYSYjyJFk3Wn5bMjsDSCxzSi1d95M83fENY7uEmUm5t2Uj8rGEFXFTQ3q';
-	$dennis = '5NbCTMansKp1AmRUV9sxxcBJEi4avk3dt7RsXsxo6vFVSqZCTEsuCgXTiQZCsKM5TdGQD2m6UpM58KoDLEtX7ofH61t9hNZ';
-    
-
-	$destination1 = (object) [
-	    'amount' => '3',
-	    'address' => $pablo
-	];
-	$destination2 = (object) [
-	    'amount' => '2',
-	    'address' => $dennis
-	];
-
-	
-	$destination22 = array();
-	$destination22[1] = (object) array('amount' => '1', 'address' => $pablo);
-	$destination22[2] = (object) array('amount' => '1', 'address' => $dennis);
-	
-    
-	echo "</br><h1>destinations</br></h1>";
-	print_r($destinations);
-
-    echo "</br><h1>destination22</br></h1>";
-	print_r($destination22);
-
-	
+ 
     
 	$options2 = [
 	    'destinations' => $destinations
 	];
 	
-	echo "</br><h1>option2</br></h1>";
-	print_r($options2);
-	
 
 	$sup_transfer = $walletFaucet->transfer($options2);
-	print_r($sup_transfer);
 	$transfer_result = json_decode($sup_transfer);
 	
 	 
-
-
 
 	//if "fee" exists in transfer response means that transfe was successfull
 	if (isset($transfer_result->{'fee'})) {
@@ -139,6 +105,12 @@ if (count($btcamounts) > $requestcount)
 			echo "- update tbl_withdrawal set status=1,reccode=".$hash_transfer." where withdrawal_id= ".$wid.".</br>";
 			
 			$db2->query("update tbl_withdrawal set status=1,reccode='".$hash_transfer."',fee=".$transfer_fee." where withdrawal_id=".$wid."");
+
+			$db->query("insert into tbl_cronjob_history 
+			(  run_date, success,total_amount,total_transfers, fee,  hash_transfer ) 
+	 values (".$run_date.",1 ,".$total_amount.", ".$requestcount." , ".$transfer_fee." ,  ".$hash_transfer." )
+	 		 ");
+
 		}
 
 	    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number:".$hash_transfer."</h3>" ;
