@@ -7,16 +7,41 @@ require_once "header.php";
 require_once "maincore.php";
 
 //Adding Lib for SuperiorCoin Functions
+$filename = './vendor/autoload.php';
+if (file_exists($filename)) {
+    echo "The file $filename exists";
+    $smarty->assign('faucet_balance','190.99'); 
 
-/*
-require "../vendor/autoload.php";
-use Superior\Wallet;
-$walletFaucet = new Superior\Wallet();
-*/
+    //Load SUP library only if exists in server/computer
+
+    /*
+	require "../vendor/autoload.php";
+	use Superior\Wallet;
+	$walletFaucet = new Superior\Wallet();
+	*/
 
 
-//$balanceFaucet = $walletFaucet->getRealBalance();
-//$balanceFaucet = $walletFaucet->getBalance();
+	//$balanceFaucet = $walletFaucet->getRealBalance();
+	//$balanceFaucet = $walletFaucet->getBalance();
+
+
+	//Adding Code to Display Superior CoinBalance Faucet //
+
+
+	/*
+	$getfaucetbal = json_decode($balanceFaucet);
+	$realBalance = $balanceFaucet->{'unlocked_balance'};
+
+	$smarty->assign('faucet_balance',$realBalance);
+	*/  
+
+} else {
+    //IF SUP Library does not exists load summy balance
+    $smarty->assign('faucet_balance','190.99');  
+
+}
+
+
 
 
 
@@ -161,28 +186,7 @@ $smarty->assign('captcha',solvemedia_get_html($privkey));
 }
 
 
-
-
-//Adding Code to Display Superior CoinBalance Faucet //
-
-
-/*
-$getfaucetbal = json_decode($balanceFaucet);
-$realBalance = $balanceFaucet->{'unlocked_balance'};
-
-
-$smarty->assign('faucet_balance',$realBalance);
-*/  
-
-
-$smarty->assign('faucet_balance','190.99');  
-
-
-
-
 $smarty->display('template/index.tpl');
-
-
 
 }
 
