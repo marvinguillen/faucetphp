@@ -100,7 +100,7 @@ if (count($btcamounts) >= $requestcount)
 
 		for ($i=0;$i<$requestcount;$i++) {
 			$wid = $withdrawalid[$i];
-			echo "</br>--> Running transfer number: " .$i. "/ with Withdrawal id:" .$wid;
+			echo "</br>--> Running transfer number: " .$btcamounts[$i]. "/ with Withdrawal id:" .$wid;
 			/*
 			echo "- update tbl_withdrawal set status=1,reccode=".$hash_transfer." where withdrawal_id= ".$wid.".</br>";
 			*/
