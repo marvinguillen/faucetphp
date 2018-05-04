@@ -99,10 +99,11 @@ if (count($btcamounts) >= $requestcount)
 		$hash_transfer=$transfer_hash;
 
 		for ($i=0;$i<$requestcount;$i++) {
-			echo "Counter = ".$i." -- ";
 			$wid = $withdrawalid[$i];
-			print_r($wid);
+			echo "--> Running transfer number: " .$i. "/ with Withdrawal id:" .$wid "</br>";
+			/*
 			echo "- update tbl_withdrawal set status=1,reccode=".$hash_transfer." where withdrawal_id= ".$wid.".</br>";
+			*/
 			
 			$db2->query("update tbl_withdrawal set status=1,reccode='".$hash_transfer."',fee=".$transfer_fee." where withdrawal_id=".$wid."");
 
@@ -117,8 +118,6 @@ if (count($btcamounts) >= $requestcount)
 	    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number:".$hash_transfer."</h3>" ;
 
 	    
-
-
 
 	//if "fee" not exists in transfer response means that error exists
 	} else {
