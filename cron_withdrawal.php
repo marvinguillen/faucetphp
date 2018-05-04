@@ -63,7 +63,7 @@ while($res=$db->fetchArray()){
 }
 
 
-if (count($btcamounts) > $requestcount)
+if (count($btcamounts) >= $requestcount)
 {	
 		
 	echo "</br><h3>There are ". count($btcamounts)." no processed withdrawals in our database . </br> 
@@ -106,14 +106,18 @@ if (count($btcamounts) > $requestcount)
 			
 			$db2->query("update tbl_withdrawal set status=1,reccode='".$hash_transfer."',fee=".$transfer_fee." where withdrawal_id=".$wid."");
 
-			$db->query("insert into tbl_cronjob_history 
+			
+		}
+
+	    $db2->query("insert into tbl_cronjob_history 
 			(  run_date, success,total_amount,total_transfers, fee,  hash_transfer ) 
 	 values (".$run_date.",1 ,".$total_amount.", ".$requestcount." , ".$transfer_fee." ,  ".$hash_transfer." )
 	 		 ");
 
-		}
-
 	    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number:".$hash_transfer."</h3>" ;
+
+	    
+
 
 
 	//if "fee" not exists in transfer response means that error exists
@@ -128,7 +132,7 @@ if (count($btcamounts) > $requestcount)
 		
 }
 else {
-	echo "</br><h3>There are only ". count($btcamounts)." withdrawals in our database </br> We must have more than ". $requestcount." withdrawals to run Superior Transfer Cronjob.</h3>";
+	echo "</br><h3>There are only ". count($btcamounts)." withdrawals in our database </br> We must have  ". $requestcount." withdrawals or more to run Superior Transfer Cronjob.</h3>";
 				
 }
 
