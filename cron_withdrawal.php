@@ -93,20 +93,23 @@ if (count($btcamounts) >= $requestcount)
 		$transfer_hash = $transfer_result->{'tx_hash'};
 		echo 
 		"Transfer Fee: ".$transfer_fee. 
-		"</br>Transfer Hash: ".$transfer_hash;
+		"</br>Transfer Hash: ".$transfer_hash.
+		"</br>Total Number of Transfers: ".$requestcount.
+		"</br>Total Amount Transfered: ".$total_amount.
+		"</br>------------------------------------------</br>";
+
 
 
 		$hash_transfer=$transfer_hash;
 
 		for ($i=0;$i<$requestcount;$i++) {
 			$wid = $withdrawalid[$i];
-			echo "</br>--> Running transfer number: " .$btcamounts[$i]. "/ with Withdrawal id:" .$wid;
+			echo "</br>--> Running transfer number: " .$i. "/ with amount of:" .$btcamounts[$i];
 			/*
 			echo "- update tbl_withdrawal set status=1,reccode=".$hash_transfer." where withdrawal_id= ".$wid.".</br>";
 			*/
 			
 			$db2->query("update tbl_withdrawal set status=1,reccode='".$hash_transfer."',fee=".$transfer_fee." where withdrawal_id=".$wid."");
-
 			
 		}
 
@@ -115,12 +118,10 @@ if (count($btcamounts) >= $requestcount)
 	 values (".$run_date.",1 ,".$total_amount.", ".$requestcount.",".$transfer_fee.
 	 ", '$hash_transfer' , ''  ) ");
 
+
+	    echo "</br><h3>".$requestcount. " Withdrawal Transfers has been proceessed with hash number:".$hash_transfer."</h3>" ;
+
 	    
-
-	    echo "</br><h3>".$requestcount. " Withdrawals has been proceessed with hash number:".$hash_transfer."</h3>" ;
-
-	    
-
 	//if "fee" not exists in transfer response means that error exists
 	} else {
 		$transfer_errorcode = $transfer_result->{'code'};
