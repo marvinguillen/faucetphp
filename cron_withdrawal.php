@@ -131,10 +131,10 @@ if (count($btcamounts) >= $requestcount)
 		"Error Code: ".$transfer_errorcode. 
 		"</br>Error Message: ".$transfer_errormessage;
 
-		/*$db->query("insert into tbl_cronjob_history 
-			(  run_date, success,total_amount,total_transfers, fee, error_transfer ) 
+		$db->query("insert into tbl_cronjob_history 
+			(  run_date, success,total_amount,total_transfers, fee, hash_transfers, error_transfer ) 
 	 values (".$run_date.",1 ,".$total_amount.", ".$requestcount.",".$transfer_errorcode.
-	 ", '$transfer_errormessage'  ) ");*/
+	 ", '' , '$transfer_errormessage'  ) ");
 
 
 
