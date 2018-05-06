@@ -31,8 +31,7 @@ if( isset($_POST['currency'] ) ){
 	$db->queryres("SELECT * from tbl_config where header='currency'");
 
 	$curtype = $db->res['value'];
-	$old_AMOUNT=$_POST['amount'];
-	$amount=(int)$old_AMOUNT;
+	$amount=$_POST['amount'];
 	/*Bitcoin :  Transfer all payment in one transaction without fees | mBTCLitecoin : 1% + 1 mLTCDogecoin : 1% + 1.0 DogePeercoin : 1% + 10 mPPCDarkcoin : 1% + 1 mDRK */
 
 	switch ($curtype)

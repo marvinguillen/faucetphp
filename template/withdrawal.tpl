@@ -44,7 +44,7 @@
               <tr>
                 <th>Amount</th>
                 <th>Date</th>
-                <th>Type</th>
+                <th>Hash</th>
                 <th>Status</th>
               </tr>
               </thead>
@@ -56,7 +56,7 @@
               <tr>
                 <td>{$foo['amount']}</td>
                 <td>{$foo['date']}</td>
-                <td>{if $foo['type']==0}Asmoney{else}Currency{/if}</td>
+                <td>{$foo['reccode']}</td>
                 <td>
                 {if $foo['status']==0}
                 
