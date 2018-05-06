@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-06 15:42:59
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-06 15:49:25
          compiled from "template/withdrawal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:8496928185aea3e91734441-91888442%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'af699788d530083c1af5de579fe52cb308b5b680' => 
     array (
       0 => 'template/withdrawal.tpl',
-      1 => 1525642972,
+      1 => 1525643098,
       2 => 'file',
     ),
   ),
@@ -341,10 +341,8 @@ $_smarty_tpl->tpl_vars['foo']->_loop = true;
  type="text/javascript">
       function checkcoin() {
        
-      var address = document.coin.address.val();
-      alert( address);
-      var amount = document.coin.amount.val();
-      alert(amount);
+      var address = document.coin.address.value;
+      var amount = document.coin.amount.value;
 
 
       if (amount <= 0) {

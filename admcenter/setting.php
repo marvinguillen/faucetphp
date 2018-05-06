@@ -87,7 +87,7 @@ header('Location:setting.php');
                 <label for="exampleInputEmail1">Currency</label>
                     
                     <select class="form-control" name="currency">
-                    	<option value="BTC" <?php if($db->res['value']=='BTC') echo 'selected'; ?>>BTC</option>
+                    	<option value="BTC" <?php if($db->res['value']=='SUP') echo 'selected'; ?>>SUP</option>
                     	<option value="mBTC" <?php if($db->res['value']=='mBTC') echo 'selected'; ?>>mBTC</option>
                     	<option value="Satoshi" <?php if($db->res['value']=='Satoshi') echo 'selected'; ?>>Satoshi</option>
                     	<option value="LTC" <?php if($db->res['value']=='LTC') echo 'selected'; ?>>LTC</option>
