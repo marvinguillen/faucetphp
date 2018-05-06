@@ -288,8 +288,8 @@
     <script type="text/javascript">
       function checkcoin() {
        
-      var address = document.coin.address.val();
-      var amount = document.coin.amount.val();
+      var address = document.coin.address.value;
+      var amount = document.coin.amount.value;
 
 
       if (amount <= 0) {
